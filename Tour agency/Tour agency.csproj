@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Tour_agency</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Image\Maldi.jpg" />
+    <None Remove="Image\Maldi1.jpg" />
+    <None Remove="Image\MenuIcon.png" />
+    <None Remove="Image\none.png" />
+    <None Remove="Image\travel.png" />
+    <None Remove="noimage.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
+    <PackageReference Include="Fody" Version="6.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MaterialDesignColors" Version="1.2.6" />
+    <PackageReference Include="MaterialDesignThemes" Version="3.1.3" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.2.8" />
+    <PackageReference Include="System.Reactive.Linq" Version="4.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\Maldi.jpg" />
+    <Resource Include="Image\Maldi1.jpg" />
+    <Resource Include="Image\MenuIcon.png" />
+    <Resource Include="Image\none.png" />
+    <Resource Include="Image\travel.png" />
+    <Resource Include="noimage.jpeg" />
+  </ItemGroup>
+
+</Project>
