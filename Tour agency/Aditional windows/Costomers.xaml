@@ -64,6 +64,7 @@
                 BorderBrush="#FF818080">
             <TextBox Text="{Binding Path=name, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding ClientsErrorCollection[name]}"
                      x:Name="name"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -96,6 +97,7 @@
                 BorderBrush="#FF818080">
             <TextBox Text="{Binding Path=surname, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding ClientsErrorCollection[surname]}"
                      x:Name="surname"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -128,6 +130,7 @@
                 BorderBrush="#FF818080">
             <TextBox Text="{Binding Path=patronymic, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding ClientsErrorCollection[patronymic]}"
                      Name="patronymic"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -160,6 +163,7 @@
                 BorderBrush="#FF818080">
             <TextBox Text="{Binding Path=phone, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding ClientsErrorCollection[phone]}"
                      Name="phone"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -203,8 +207,7 @@
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Path=name, ValidatesOnDataErrors=True,
-                    UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="{Binding Path=name}" />
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
@@ -219,6 +222,7 @@
             <DatePicker x:Name="dateOfDeparture"
                         Text="{Binding Path=dateOFDeparture, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
+                        ToolTip="{Binding ClientsErrorCollection[dateOFDeparture]}"
                         Margin="0 1 0 0"
                         Foreground="Black"
                         materialDesign:HintAssist.FloatingScale="0.8"
@@ -246,6 +250,7 @@
             <DatePicker x:Name="returnDate"
                         Text="{Binding Path=returnDate, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
+                        ToolTip="{Binding ClientsErrorCollection[returnDate]}"
                         Margin="0 1 0 0"
                         Foreground="Black"
                         materialDesign:HintAssist.FloatingScale="0.8"
@@ -298,10 +303,10 @@
         </StackPanel>
         <Grid MouseDown="Grid_MouseDown"
               Height="30"
-              Margin="0 0 350 0"
+              Margin="0,0,387,0"
               VerticalAlignment="Top"
               Background="#FF222222">
-            <TextBlock Text="Costomers"
+            <TextBlock Text="Клієнт"
                        Foreground="LightGray"
                        FontSize="18"
                        Margin="5" />

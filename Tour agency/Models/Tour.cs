@@ -13,73 +13,60 @@ namespace Tour_agency.Models
     public class Tour: INotifyPropertyChanged, IDataErrorInfo
     {
         #region Data Validation
-        //Поле, яке слугує для відправки винятків при некоректному вводі, в даному випадку, воно нічого не відправляє, так як не потрібно:
         public string Error { get { return null; } }
 
-        //Словник помилок, який використовується для підказок(ToolTip), які з'являються біля контролу для визначення конкретної помилки
-        public Dictionary<string, string> WorkersErrorCollection { get; private set; } = new Dictionary<string, string>();
+        public Dictionary<string, string> TourErrorCollection { get; private set; } = new Dictionary<string, string>();
 
-        //Поле, яке безпосередньо робить перевірки:
         public string this[string columnName]
         {
             get
             {
-                //на початку ніяких помилок немає, тому null
                 string result = null;
-                //"перебираємо" ймовірні помилки
                 switch (columnName)
                 {
                     case "name":
-                        if (string.IsNullOrEmpty(name)) //якщо ввід нульовий, тобто, немає ніякого значення
+                        if (string.IsNullOrEmpty(name))
                         {
-                            result = "Worker name cannot be empty";//"Ім'я користувача не може бути порожнім"
+                            result = "Поле назви туру не може бути порожнє ";
                         }
                         break;
                     case "price":
-                        Regex regex = new Regex(@"^[0-9.]+$");//дозволяє тільки цифри і крапку
-                        //Match match;
+                        Regex regex = new Regex(@"^[0-9.]+$");
                         if (string.IsNullOrEmpty(price))
                         {
-                            result = "Price cannot be empty";
+                            result = "Поле ціни не може бути порожнє ";
                         }
                         else if (!regex.IsMatch(price))
                         {
-                            result = "Price can contain only digits and a single dot";
+                            result = "Поле ціни може містити тільки цифри та порожнє ";
                         }
                         break;
                     case "country":
                         if (string.IsNullOrEmpty(country))
                         {
-                            result = "Worker middle name cannot be empty";
+                            result = "Поле країни не може бути порожнє ";
                         }
                         break;
                     case "hotel":
                         if (string.IsNullOrEmpty(hotel))
                         {
-                            result = "Worker position cannot be empty";
-                        }
-                        break;
-                    case "description":
-                        if (string.IsNullOrEmpty(description))
-                        {
-                            result = "Worker position cannot be empty";
+                            result = "Поле готелю не може бути порожнє ";
                         }
                         break;
                 }
 
-                //Додавання помилок у словник
-                if (WorkersErrorCollection.ContainsKey(columnName))//Якщо колекція вже має ключ(тобто, наше поле), більше його не треба створювати, натомість, додати тільки текст помилки
+                if (TourErrorCollection.ContainsKey(columnName))
                 {
-                    WorkersErrorCollection[columnName] = result;
+                    TourErrorCollection[columnName] = result;
                 }
                 else if (result != null)
-                    WorkersErrorCollection.Add(columnName, result);//Якщо колекція ще не має такого ключа - додати і ключ, і текст помилки
+                    TourErrorCollection.Add(columnName, result);
 
-                OnPropertyChanged("WorkersErrorCollection");//Поле WorkersErrorCollection підписалось на подію OnPropertyChanged
+                OnPropertyChanged("TourErrorCollection");
 
-                if (result != null)//якщо в полі result є помилка, показати в повідомленні "!"
+                if (result != null)
                     return "!";
-                else return "";//Якщо ні - нічого не показувати
+                else return "";
             }
         }
         #endregion

@@ -66,6 +66,7 @@
                 Grid.RowSpan="2">
             <TextBox Text="{Binding Path=name, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding TourErrorCollection[name]}"
                      x:Name="name"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -98,6 +99,7 @@
                 BorderBrush="#FF818080">
             <TextBox Text="{Binding Path=price, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding TourErrorCollection[price]}"
                      Name="price"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -130,6 +132,7 @@
                 BorderBrush="#FF818080">
             <TextBox Text="{Binding Path=country, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding TourErrorCollection[country]}"
                      Name="country"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -162,6 +165,7 @@
                 BorderBrush="#FF818080">
             <TextBox Text="{Binding Path=hotel, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding TourErrorCollection[hotel]}"
                      Name="hotel"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -192,8 +196,7 @@
                 Margin="5,6,10,6"
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
-            <TextBox Text="{Binding Path=description, ValidatesOnDataErrors=True,
-                    UpdateSourceTrigger=PropertyChanged}"
+            <TextBox Text="{Binding Path=description}"
                      Name="description"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -282,13 +285,13 @@
         </Border>
         <Grid MouseDown="Grid_MouseDown"
               Height="30"
-              Margin="0 0 300 0"
+              Margin="0,0,338,0"
               VerticalAlignment="Top"
               Background="#FF222222">
-            <TextBlock Text="Travel"
+            <TextBlock Text="Тур"
                        Foreground="LightGray"
                        FontSize="18"
-                       Margin="5" />
+                       Margin="5,5,5,-6" />
             <!--<StackPanel Width="45" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top">
                 -->
             <!--<Button

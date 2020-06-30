@@ -9,79 +9,67 @@ namespace Tour_agency.Models
     public class Client : INotifyPropertyChanged, IDataErrorInfo
     {
         #region Data Validation
-        //Поле, яке слугує для відправки винятків при некоректному вводі, в даному випадку, воно нічого не відправляє, так як не потрібно:
         public string Error { get { return null; } }
 
-        //Словник помилок, який використовується для підказок(ToolTip), які з'являються біля контролу для визначення конкретної помилки
-        public Dictionary<string, string> WorkersErrorCollection { get; private set; } = new Dictionary<string, string>();
+        public Dictionary<string, string> ClientsErrorCollection { get; private set; } = new Dictionary<string, string>();
 
-        //Поле, яке безпосередньо робить перевірки:
         public string this[string columnName]
         {
             get
             {
-                //на початку ніяких помилок немає, тому null
                 string result = null;
-                //"перебираємо" ймовірні помилки
                 switch (columnName)
                 {
                     case "name":
-                        if (string.IsNullOrEmpty(name)) //якщо ввід нульовий, тобто, немає ніякого значення
+                        if (string.IsNullOrEmpty(name))
                         {
-                            result = "Worker name cannot be empty";//"Ім'я користувача не може бути порожнім"
+                            result = "Ім'я клієнта не може бути порожнє "; ;
                         }
                         break;
                     case "surname":
                         if (string.IsNullOrEmpty(surname))
                         {
-                            result = "Worker last name cannot be empty";
+                            result = "Прізвище клієнта не може бути порожнє ";
                         }
                         break;
                     case "patronymic":
                         if (string.IsNullOrEmpty(patronymic))
                         {
-                            result = "Worker middle name cannot be empty";
+                            result = "по батькові клієнта не може бути порожнє ";
                         }
                         break;
                     case "phone":
                         if (string.IsNullOrEmpty(phone))
                         {
-                            result = "Worker position cannot be empty";
-                        }
-                        break;
-                    case "tour":
-                        if (string.IsNullOrEmpty(idTour))
-                        {
-                            result = "Worker position cannot be empty";
+                            result = "Номер телефону клієнта не може бути порожнє ";
                         }
                         break;
                     case "dateOFDeparture":
                         if (string.IsNullOrEmpty(dateOFDeparture))
                         {
-                            result = "Worker position cannot be empty";
+                            result = "Дата відправлення не може бути порожнє ";
                         }
                         break;
                     case "returnDate":
                         if (string.IsNullOrEmpty(returnDate))
                         {
-                            result = "Worker address cannot be empty";
+                            result = "Дата повернення не може бути порожнє ";
                         }
                         break;
                 }
 
-                //Додавання помилок у словник
-                if (WorkersErrorCollection.ContainsKey(columnName))//Якщо колекція вже має ключ(тобто, наше поле), більше його не треба створювати, натомість, додати тільки текст помилки
+                if (ClientsErrorCollection.ContainsKey(columnName))
                 {
-                    WorkersErrorCollection[columnName] = result;
+                    ClientsErrorCollection[columnName] = result;
                 }
                 else if (result != null)
-                    WorkersErrorCollection.Add(columnName, result);//Якщо колекція ще не має такого ключа - додати і ключ, і текст помилки
+                    ClientsErrorCollection.Add(columnName, result);
 
-                OnPropertyChanged("WorkersErrorCollection");//Поле WorkersErrorCollection підписалось на подію OnPropertyChanged
+                OnPropertyChanged("ClientsErrorCollection");
 
-                if (result != null)//якщо в полі result є помилка, показати в повідомленні "!"
+                if (result != null)
                     return "!";
-                else return "";//Якщо ні - нічого не показувати
+                else return "";
             }
         }
         #endregion

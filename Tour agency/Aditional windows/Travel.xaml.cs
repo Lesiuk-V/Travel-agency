@@ -43,6 +43,7 @@ namespace Tour_agency.Aditional_windows
             {
                 ConvertByteToImage();
             }
+            DataContext = Tour;
         }
 
         private void Button_close_Click(object sender, RoutedEventArgs e)
