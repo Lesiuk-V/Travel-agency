@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Tour_agency.Models.Client">
+    <Position X="11.75" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAQAALAAEAIAAgAAEAAAgAAAAIAAAAgQ=</HashCode>
+      <FileName>Models\Client.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Tour_agency.Models.Tour">
+    <Position X="9.5" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAJAAAAAABAAQAEKAAAAAAAkAAEAAACAABAAAAAAgA=</HashCode>
+      <FileName>Models\Tour.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Tour_agency.Helper.ClientHelper">
+    <Position X="7.5" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAIADBABAAAQ=</HashCode>
+      <FileName>Helper\ClientHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tour_agency.Helper.TourHelper">
+    <Position X="5.25" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAIAAIgIAAAAAAAAAAAAAAAAAJAIAAAQAAAAA=</HashCode>
+      <FileName>Helper\TourHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
