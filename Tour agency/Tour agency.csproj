@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icon\favicon.ico" />
     <None Remove="Image\Maldi.jpg" />
     <None Remove="Image\Maldi1.jpg" />
     <None Remove="Image\MenuIcon.png" />
@@ -29,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Icon\favicon.ico" />
     <Resource Include="Image\Maldi.jpg" />
     <Resource Include="Image\Maldi1.jpg" />
     <Resource Include="Image\MenuIcon.png" />

@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:Tour_agency"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     mc:Ignorable="d"
+    Icon="\Icon\favicon.ico"
     WindowStyle="None"
     AllowsTransparency="True"
     WindowStartupLocation="CenterScreen"
