@@ -10,10 +10,11 @@ using Tour_agency.Models;
 
 namespace Tour_agency.Helper
 {
-    public class TourHelper
+    public class TourHelper : IHelper<Tour>
     {
         FirebaseClient tour = new FirebaseClient("https://traver-agency.firebaseio.com/");//поле для зв'язку з віддаленим сервером Firebase
-        public async Task<List<Tour>> GetAllTourAsync()
+
+        public async Task<List<Tour>> GetAllAsync()
         {
             return (await tour
                 .Child("Tour")
@@ -53,44 +54,44 @@ namespace Tour_agency.Helper
 
         public async Task<Tour> GetTour(string ID)
         {
-            var allTours = await GetAllTourAsync();
+            var allTours = await GetAllAsync();
             await tour
                 .Child("Tour")
                 .OnceAsync<Tour>();
 
             return allTours.Where(t => t.id == ID).FirstOrDefault();
         }
-        public async Task AddTour(string Name, string Price, string Country, string Hotel, string Description, string Image)
+        public async Task AddAsync(Tour newTour)
         {
             await tour
                 .Child("Tour")
                 .PostAsync(new Tour()
                 {
                     id = GetRandomId(),//отримання нового згенерованого айді
-                    name = Name,
-                    price = Price,
-                    country = Country,
-                    hotel = Hotel,
-                    description = Description,
-                    image = Image
-                });
+                    name = newTour.name,
+                    price = newTour.price,
+                    country = newTour.country,
+                    hotel = newTour.hotel,
+                    description = newTour.description,
+                    image = newTour.image
+                }) ;
         }
 
         //Метод оновлення даних конкретного продукту
-        public async Task UpdateTour(string ID, string Name, string Price, string Country, string Hotel, string Description, string Image)
+        public async Task UpdateAsync(Tour updateTour)
         {
             var toUpdateProduct = (await tour
                 .Child("Tour")
-                .OnceAsync<Tour>()).Where(a => a.Object.id == ID).FirstOrDefault(); //шукаємо продукт за переданим в метод айді
+                .OnceAsync<Tour>()).Where(a => a.Object.id == updateTour.id).FirstOrDefault(); //шукаємо продукт за переданим в метод айді
 
             await tour
                 .Child("Tour")
                 .Child(toUpdateProduct.Key)//звертаємося до конкретного запису в сервері за ключем
-                .PutAsync(new Tour { id = ID, name = Name, price = Price, country = Country, hotel = Hotel, description = Description, image = Image });
+                .PutAsync(new Tour { id = updateTour.id, name = updateTour.name, price = updateTour.price, country = updateTour.country, hotel = updateTour.hotel, description = updateTour.description, image = updateTour.image });
         }
 
         //Метод видалення конкретного продукту
-        public async Task DeleteTour(string ID)
+        public async Task DeleteAsync(string ID)
         {
             var toDeleteProduct = (await tour
                 .Child("Tour")
@@ -122,6 +123,8 @@ namespace Tour_agency.Helper
                 "P";
 
         }
+
+        
         #endregion
     }
 }

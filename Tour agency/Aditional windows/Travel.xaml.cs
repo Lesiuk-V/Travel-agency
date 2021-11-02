@@ -79,15 +79,14 @@ namespace Tour_agency.Aditional_windows
                 if (tourImageToFirebase != null)
                 {
                     Close();
-                    await tourHelper.AddTour(
-                        name.Text,
-                        price.Text,
-                        country.Text,
-                        hotel.Text,
-                        description.Text,
-                        Convert.ToBase64String(tourImageToFirebase)
-                       );
-
+                    Tour tour = new Tour();
+                    tour.name = name.Text;
+                    tour.price = price.Text;
+                    tour.country = country.Text;
+                    tour.hotel = hotel.Text;
+                    tour.description = description.Text;
+                    tour.image = Convert.ToBase64String(tourImageToFirebase);
+                    await tourHelper.AddAsync(tour);
                 }
                 else
                 {
@@ -101,30 +100,27 @@ namespace Tour_agency.Aditional_windows
                 Close();
                 if (tourImageToFirebase == null)
                 {
-
-                    await tourHelper.UpdateTour(
-                        Tour.id,
-                        name.Text,
-                        price.Text,
-                        country.Text,
-                        hotel.Text,
-                        description.Text,
-                        Tour.image
-
-                        );
+                    Tour tour = new Tour();
+                    tour.id = Tour.id;
+                    tour.name = name.Text;
+                    tour.price = price.Text;
+                    tour.country = country.Text;
+                    tour.hotel = hotel.Text;
+                    tour.description = description.Text;
+                    tour.image = Tour.image;
+                    await tourHelper.UpdateAsync(tour);
                 }
                 else
                 {
-                    await tourHelper.UpdateTour(
-                       Tour.id,
-                       name.Text,
-                       price.Text,
-                       country.Text,
-                       hotel.Text,
-                       description.Text,
-                       Convert.ToBase64String(tourImageToFirebase)
-
-                       );
+                    Tour tour = new Tour();
+                    tour.id = Tour.id;
+                    tour.name = name.Text;
+                    tour.price = price.Text;
+                    tour.country = country.Text;
+                    tour.hotel = hotel.Text;
+                    tour.description = description.Text;
+                    tour.image = Convert.ToBase64String(tourImageToFirebase);
+                    await tourHelper.UpdateAsync(tour);
                 }
 
             }
@@ -139,7 +135,7 @@ namespace Tour_agency.Aditional_windows
             {
                 case MessageBoxResult.Yes:
                     Close();
-                    await tourHelper.DeleteTour(Tour.id);
+                    await tourHelper.DeleteAsync(Tour.id);
                     break;
                 case MessageBoxResult.No:
                     break;

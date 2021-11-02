@@ -78,27 +78,29 @@ namespace Tour_agency.Aditional_windows
                 Close();
                 if (edited == false)
                 {
-                    await clientHelper.AddClient(
-                        name.Text,
-                        surname.Text,
-                        patronymic.Text,
-                        phone.Text,
-                        tourId, // !!!!!!!!!!!!!!!!
-                        dateOfDeparture.Text,
-                        returnDate.Text);
+                    Client client = new Client();
+                    client.name = name.Text;
+                    client.surname = surname.Text;
+                    client.patronymic = patronymic.Text;
+                    client.phone = phone.Text;
+                    client.idTour = tourId;
+                    client.dateOFDeparture = dateOfDeparture.Text;
+                    client.returnDate = returnDate.Text;
+
+                    await clientHelper.AddAsync(client);
                 }
                 else if (edited == true)
                 {
-                    await clientHelper.UpdateClient(
-                        Client.id,
-                        name.Text,
-                        surname.Text,
-                        patronymic.Text,
-                        phone.Text,
-                        tourId, // !!!!!!!!!!!!!!!!
-                        dateOfDeparture.Text,
-                        returnDate.Text
-                        );
+                    Client client = new Client();
+                    client.id = Client.id;
+                    client.name = name.Text;
+                    client.surname = surname.Text;
+                    client.patronymic = patronymic.Text;
+                    client.phone = phone.Text;
+                    client.idTour = tourId;
+                    client.dateOFDeparture = dateOfDeparture.Text;
+                    client.returnDate = returnDate.Text;
+                    await clientHelper.UpdateAsync(client);
 
                 }
             }
@@ -116,7 +118,7 @@ namespace Tour_agency.Aditional_windows
             {
                 case MessageBoxResult.Yes:
                     Close();
-                    await clientHelper.DeleteClient(Client.id);
+                    await clientHelper.DeleteAsync(Client.id);
                     break;
                 case MessageBoxResult.No:
                     break;

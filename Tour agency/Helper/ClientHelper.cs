@@ -9,10 +9,18 @@ using Tour_agency.Models;
 
 namespace Tour_agency.Helper
 {
-    public class ClientHelper
+    public class ClientHelper : IHelper<Client>
     {
         FirebaseClient client = new FirebaseClient("https://traver-agency.firebaseio.com/");
-        public async Task<List<Client>> GetAllClientsAsync()
+
+
+
+  
+
+      
+       
+
+        public async Task<List<Client>> GetAllAsync()
         {
             return (await client
                 .Child("Client")
@@ -29,36 +37,38 @@ namespace Tour_agency.Helper
                 }).ToList();
         }
 
-        public async Task AddClient(string Name, string Surname, string Patronymic, string Phone, string IdTour, string DateOfDeparture, string ReturnDate)
+        public async Task AddAsync(Client newClient)
         {
             await client
                 .Child("Client")
                 .PostAsync(new Client()
                 {
                     id = GetRandomId(),
-                    name = Name,
-                    surname = Surname,
-                    patronymic = Patronymic,
-                    phone = Phone,
-                    idTour = IdTour,
-                    dateOFDeparture = DateOfDeparture,
-                    returnDate = ReturnDate
+                    name = newClient.name,
+                    surname = newClient.surname,
+                    patronymic = newClient.patronymic,
+                    phone = newClient.phone,
+                    idTour = newClient.idTour,
+                    dateOFDeparture = newClient.dateOFDeparture,
+                    returnDate = newClient.returnDate
                 });
         }
 
-        public async Task UpdateClient(string ID, string Name, string Surname, string Patronymic, string Phone, string IdTour, string DateOfDeparture, string ReturnDate)
+        public async Task UpdateAsync(Client updateClient)
         {
             var toUpdateClient = (await client
                 .Child("Client")
-                .OnceAsync<Client>()).Where(a => a.Object.id == ID).FirstOrDefault();
+                .OnceAsync<Client>()).Where(a => a.Object.id == updateClient.id).FirstOrDefault();
 
             await client
                 .Child("Client")
                 .Child(toUpdateClient.Key)
-                .PutAsync(new Client { id = ID, name = Name, surname = Surname, patronymic = Patronymic, phone = Phone, idTour = IdTour, dateOFDeparture = DateOfDeparture, returnDate = ReturnDate });
+                .PutAsync(new Client { id = updateClient.id, name = updateClient.name, surname = updateClient.surname,
+                 patronymic = updateClient.patronymic, phone = updateClient.phone, idTour = updateClient.idTour, dateOFDeparture = updateClient.dateOFDeparture,
+                 returnDate = updateClient.returnDate});
         }
 
-        public async Task DeleteClient(string ID)
+        public async Task DeleteAsync(string ID)
         {
             var toDeleteProduct = (await client
                 .Child("Client")
@@ -68,7 +78,7 @@ namespace Tour_agency.Helper
 
         public async Task<Client> GetClient(string ID)
         {
-            var allClients = await GetAllClientsAsync();
+            var allClients = await GetAllAsync();
             await client
                 .Child("client")
                 .OnceAsync<Client>();
@@ -100,6 +110,8 @@ namespace Tour_agency.Helper
                 "P";
 
         }
+
+       
         #endregion
     }
 }

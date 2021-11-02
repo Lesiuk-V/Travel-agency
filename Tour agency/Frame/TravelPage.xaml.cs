@@ -48,7 +48,7 @@ namespace Tour_agency.Frame
 
         async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            toursList = await tourHelper.GetAllTourAsync();
+            toursList = await tourHelper.GetAllAsync();
             foreach(var t in toursList)
             {
                 if (t.image != null)

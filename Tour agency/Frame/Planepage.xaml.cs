@@ -80,7 +80,7 @@ namespace Tour_agency.Frame
                     if (DataGrid.SelectedItem != null)
                     {
                         Tour toDeleteTour = DataGrid.SelectedItem as Tour;
-                        await tourHelper.DeleteTour(toDeleteTour.id);
+                        await tourHelper.DeleteAsync(toDeleteTour.id);
                     }
                     break;
                 case MessageBoxResult.No:

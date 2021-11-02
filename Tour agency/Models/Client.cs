@@ -6,7 +6,7 @@ using System.Text;
 namespace Tour_agency.Models
 {
 
-    public class Client : INotifyPropertyChanged, IDataErrorInfo
+    public class Client : Person, INotifyPropertyChanged, IDataErrorInfo
     {
         #region Data Validation
         public string Error { get { return null; } }
@@ -73,10 +73,6 @@ namespace Tour_agency.Models
             }
         }
         #endregion
-        public string id { get; set; }
-        public string name { get; set; }
-        public string surname { get; set; }
-        public string patronymic { get; set; }
         public string phone { get; set; }
         public string idTour { get; set; }
         public string dateOFDeparture { get; set; }

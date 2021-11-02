@@ -24,7 +24,7 @@
                     CornerRadius="10"
                     Background="White" />
                     <DataGrid
-                        x:Name="DataGrid"
+                        x:Name="ClientsDataGrid"
                         IsReadOnly="True"
                         SelectedCellsChanged="DataGrid_SelectedCellsChanged"
                         MouseDoubleClick="DataGrid_MouseDoubleClick"
@@ -41,22 +41,22 @@
 
                         <DataGrid.Columns>
                             <DataGridTextColumn
-                            Header="Ім'я"
+                            Header="Name"
                             Binding="{Binding Path=name}"/>
                             <DataGridTextColumn
-                            Header="Прізвище"
+                            Header="Surname"
                             Binding="{Binding Path=surname}"/>
                             <DataGridTextColumn
-                            Header="По батькові"
+                            Header="Patronymic"
                             Binding="{Binding Path=patronymic}"/>
                             <DataGridTextColumn
-                            Header="Номер телефону"
+                            Header="Phone number"
                             Binding="{Binding Path=phone}"/>
                             <DataGridTextColumn
-                            Header="Дата відправлення"
+                            Header="date of departure"
                             Binding="{Binding Path=dateOFDeparture}"/>
                             <DataGridTextColumn
-                            Header="Дата повернення"
+                            Header="Return date"
                             Binding="{Binding Path=returnDate}"/>
                         </DataGrid.Columns>
                         <DataGrid.OpacityMask>
@@ -83,13 +83,25 @@
                 Width="720"
                 Orientation="Horizontal">
                 <Border
-                    HorizontalAlignment="Right"
-                    Margin="535 5 5 5"
-                    Background="{x:Null}"
+                    Margin="535 5 -10 5"
+                    Background="White"
                     CornerRadius="15"
                     Height="30"
                     Width="30">
-
+                    <Button
+                        x:Name="ButtonExport"
+                        Click="ButtonExport_Click"
+                        Background="{x:Null}"
+                        Height="20"
+                        Width="20"
+                        BorderBrush="{x:Null}">
+                        <materialDesign:PackIcon
+                            Kind="FileExport"
+                            Height="20"
+                            Width=" 20"
+                            Foreground="Black"
+                            Margin=" -16 -5 -5 -5 " />
+                    </Button>
                 </Border>
                 <Border
                     HorizontalAlignment="Right"

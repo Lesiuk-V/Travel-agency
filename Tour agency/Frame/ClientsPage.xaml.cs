@@ -1,22 +1,16 @@
 ﻿using Firebase.Database;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Tour_agency.Aditional_windows;
 using Tour_agency.Helper;
 using Tour_agency.Models;
+
 
 namespace Tour_agency.Frame
 {
@@ -40,7 +34,7 @@ namespace Tour_agency.Frame
                 executed = false;
             }
 
-            DataGrid.ItemsSource = ClientCollection;
+            ClientsDataGrid.ItemsSource = ClientCollection;
         }
 
         void GetClient()
@@ -62,7 +56,7 @@ namespace Tour_agency.Frame
         }
         private void Edit()
         {
-            Client specificclient = DataGrid.SelectedItem as Client;
+            Client specificclient = ClientsDataGrid.SelectedItem as Client;
             Costomers costomers = new Costomers(specificclient); ;
             costomers.Show();
         }
@@ -83,10 +77,10 @@ namespace Tour_agency.Frame
             switch (res)
             {
                 case MessageBoxResult.Yes:
-                    if (DataGrid.SelectedItem != null)
+                    if (ClientsDataGrid.SelectedItem != null)
                     {
-                        Client toDeleteWorker = DataGrid.SelectedItem as Client;
-                        await clientHelper.DeleteClient(toDeleteWorker.id);
+                        Client toDeleteWorker = ClientsDataGrid.SelectedItem as Client;
+                        await clientHelper.DeleteAsync(toDeleteWorker.id);
                     }
                     break;
                 case MessageBoxResult.No:
@@ -96,7 +90,7 @@ namespace Tour_agency.Frame
 
         private void DataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            if (DataGrid.SelectedItem != null)
+            if (ClientsDataGrid.SelectedItem != null)
             {
                 ButtonDelete.IsEnabled = true;
                 ButtonEdit.IsEnabled = true;
@@ -115,51 +109,51 @@ namespace Tour_agency.Frame
                 var SearchedList = (from client in ClientCollection
                                     where client.name.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select client).ToList();
-                DataGrid.ItemsSource = SearchedList;
+                ClientsDataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 1)
             {
                 var SearchedList = (from worker in ClientCollection
                                     where worker.surname.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select worker).ToList();
-                DataGrid.ItemsSource = SearchedList;
+                ClientsDataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 2)
             {
                 var SearchedList = (from worker in ClientCollection
                                     where worker.patronymic.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select worker).ToList();
-                DataGrid.ItemsSource = SearchedList;
+                ClientsDataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 3)
             {
                 var SearchedList = (from worker in ClientCollection
                                     where worker.phone.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select worker).ToList();
-                DataGrid.ItemsSource = SearchedList;
+                ClientsDataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 4)
             {
                 var SearchedList = (from worker in ClientCollection
                                     where worker.dateOFDeparture.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select worker).ToList();
-                DataGrid.ItemsSource = SearchedList;
+                ClientsDataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 5)
             {
                 var SearchedList = (from worker in ClientCollection
                                     where worker.returnDate.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select worker).ToList();
-                DataGrid.ItemsSource = SearchedList;
+                ClientsDataGrid.ItemsSource = SearchedList;
             }
         }
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var clientList = ClientCollection;
-            if (DataGrid.SelectedIndex >= 0 && DataGrid.SelectedIndex < clientList.Count)
+            if (ClientsDataGrid.SelectedIndex >= 0 && ClientsDataGrid.SelectedIndex < clientList.Count)
             {
-                Client specificClient = DataGrid.SelectedItem as Client;
+                Client specificClient = ClientsDataGrid.SelectedItem as Client;
                 Costomers client = new Costomers(specificClient, in ToursList);
                 client.ShowDialog();
             }
@@ -173,5 +167,13 @@ namespace Tour_agency.Frame
             DeleteClient();
         }
 
+
+
+
+        private void ButtonExport_Click(object sender, RoutedEventArgs e)
+        {
+
+
+        }
     }
 }
