@@ -179,8 +179,9 @@ namespace Tour_agency.Frame
 
             foreach (Client s in ClientCollection)
                 tw.WriteLine("Name: " + s.name + " Surname: " + s.surname + " Patronymic" + s.patronymic + " Tour - " + await tourHelper.GetTour(s.idTour));
-            MessageBox.Show("Дані успісно збережені");
+            
             tw.Close();
+            MessageBox.Show("Дані успісно збережені");
         }
     }
 }
