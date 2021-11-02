@@ -1,7 +1,9 @@
 ﻿using Firebase.Database;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Windows;
@@ -170,10 +172,15 @@ namespace Tour_agency.Frame
 
 
 
-        private void ButtonExport_Click(object sender, RoutedEventArgs e)
+        private async void ButtonExport_Click(object sender, RoutedEventArgs e)
         {
 
+            TextWriter tw = new StreamWriter("SavedList.txt");
 
+            foreach (Client s in ClientCollection)
+                tw.WriteLine("Name: " + s.name + " Surname: " + s.surname + " Patronymic" + s.patronymic + " Tour - " + await tourHelper.GetTour(s.idTour));
+            MessageBox.Show("Дані успісно збережені");
+            tw.Close();
         }
     }
 }
