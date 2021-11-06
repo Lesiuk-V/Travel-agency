@@ -46,15 +46,8 @@ namespace Tour_agency.Aditional_windows
             DataContext = Tour;
         }
 
-        private void Button_close_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Button_close_Click(object sender, RoutedEventArgs e) => Close();
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
         private void ConvertByteToImage()
         { 
             byte[] b = Convert.FromBase64String(Tour.image);
@@ -142,15 +135,9 @@ namespace Tour_agency.Aditional_windows
             }
         }
 
-        private void Addimage_Click(object sender, RoutedEventArgs e)
-        {
-            AddImageFromDialogWindow();
-        }
+        private void Addimage_Click(object sender, RoutedEventArgs e) => AddImageFromDialogWindow();
 
-        private void TourImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            AddImageFromDialogWindow();
-        }
+        private void TourImage_MouseDown(object sender, MouseButtonEventArgs e) => AddImageFromDialogWindow();
 
         void AddImageFromDialogWindow()
         {

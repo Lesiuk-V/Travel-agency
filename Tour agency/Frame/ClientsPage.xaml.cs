@@ -52,10 +52,7 @@ namespace Tour_agency.Frame
 
         }
 
-        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
-        {
-            Edit();
-        }
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e) => Edit();
         private void Edit()
         {
             Client specificclient = ClientsDataGrid.SelectedItem as Client;
@@ -69,10 +66,7 @@ namespace Tour_agency.Frame
             c.ShowDialog();
         }
 
-        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
-        {
-            DeleteClient();
-        }
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e) => DeleteClient();
         async void DeleteClient()
         {
             MessageBoxResult res = MessageBox.Show("Видалити дані про клієнта?", "Видалення Клієнта", MessageBoxButton.YesNo);
@@ -160,14 +154,8 @@ namespace Tour_agency.Frame
                 client.ShowDialog();
             }
         }
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            Edit();
-        }
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            DeleteClient();
-        }
+        private void Edit_Click(object sender, RoutedEventArgs e) => Edit();
+        private void Delete_Click(object sender, RoutedEventArgs e) =>  DeleteClient();
 
 
 
@@ -175,13 +163,13 @@ namespace Tour_agency.Frame
         private async void ButtonExport_Click(object sender, RoutedEventArgs e)
         {
 
-            TextWriter tw = new StreamWriter("SavedList.txt");
-
+            TextWriter tw = new StreamWriter("ClientList.txt");
+            tw.WriteLine("Ім'я \t Прізвище \t По батькові \t Тур\n");
             foreach (Client s in ClientCollection)
-                tw.WriteLine("Name: " + s.name + " Surname: " + s.surname + " Patronymic" + s.patronymic + " Tour - " + await tourHelper.GetTour(s.idTour));
+                tw.WriteLine(s.name + '\t' + s.surname + '\t' + s.patronymic + '\t' + await tourHelper.GetTour(s.idTour));
             
             tw.Close();
-            MessageBox.Show("Дані успісно збережені");
+            MessageBox.Show("Дані успішно збережені");
         }
     }
 }

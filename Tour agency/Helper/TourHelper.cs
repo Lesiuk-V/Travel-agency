@@ -121,7 +121,6 @@ namespace Tour_agency.Helper
                 value.Hour.ToString() +
                 value.Second.ToString() +
                 "P";
-
         }
 
         

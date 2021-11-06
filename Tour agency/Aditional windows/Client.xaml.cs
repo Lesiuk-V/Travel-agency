@@ -60,15 +60,9 @@ namespace Tour_agency.Aditional_windows
            
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void CloseButton_Click(object sender, RoutedEventArgs e) => Close();
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
         private async void Button_add_Click(object sender, RoutedEventArgs e)
         {

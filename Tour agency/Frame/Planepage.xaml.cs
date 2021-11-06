@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Text;
@@ -54,10 +55,7 @@ namespace Tour_agency.Frame
             t.ShowDialog();
         }
 
-        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
-        {
-            Edit();
-        }
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e) => Edit();
 
         private void Edit()
         {
@@ -158,13 +156,18 @@ namespace Tour_agency.Frame
                 ButtonEdit.IsEnabled = false;
             }
         }
-        private void Edit_Click(object sender, RoutedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e) => Edit();
+        private void Delete_Click(object sender, RoutedEventArgs e) => DeleteTour();
+
+        private void ButtonExport_Click(object sender, RoutedEventArgs e)
         {
-            Edit();
-        }
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            DeleteTour();
+            TextWriter tw = new StreamWriter("TourList.txt");
+
+            foreach (Tour s in tourCollection)
+                tw.WriteLine("Tour name: " + s.name + " Price: " + s.price + " Country: " + s.country + " Hotel: " + s.hotel + "Description: " + s.description);
+
+            tw.Close();
+            MessageBox.Show("Дані успішно збережені");
         }
     }
 }

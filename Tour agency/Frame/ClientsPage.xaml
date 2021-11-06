@@ -41,22 +41,22 @@
 
                         <DataGrid.Columns>
                             <DataGridTextColumn
-                            Header="Name"
+                            Header="Ім'я"
                             Binding="{Binding Path=name}"/>
                             <DataGridTextColumn
-                            Header="Surname"
+                            Header="Прізвище"
                             Binding="{Binding Path=surname}"/>
                             <DataGridTextColumn
-                            Header="Patronymic"
+                            Header="По батькові"
                             Binding="{Binding Path=patronymic}"/>
                             <DataGridTextColumn
-                            Header="Phone number"
+                            Header="Номер телефону"
                             Binding="{Binding Path=phone}"/>
                             <DataGridTextColumn
-                            Header="date of departure"
+                            Header="Дата відправлення"
                             Binding="{Binding Path=dateOFDeparture}"/>
                             <DataGridTextColumn
-                            Header="Return date"
+                            Header="Дата повернення"
                             Binding="{Binding Path=returnDate}"/>
                         </DataGrid.Columns>
                         <DataGrid.OpacityMask>
@@ -150,7 +150,7 @@
                 </Border>
                 <Border
                     HorizontalAlignment="Right"
-                    Margin="5 5 50 5"
+                    Margin="5 5 80 5"
                     Background="White"
                     CornerRadius="15"
                     Height="30"

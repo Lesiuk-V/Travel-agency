@@ -90,12 +90,25 @@
                 Orientation="Horizontal">
                 <Border
                     HorizontalAlignment="Right"
-                    Margin="535 5 5 5"
-                    Background="{x:Null}"
+                    Margin="535 5 -10 5"
+                    Background="White"
                     CornerRadius="15"
                     Height="30"
                     Width="30">
-
+                    <Button
+                        x:Name="ButtonExport"
+                        Click="ButtonExport_Click"
+                        Background="{x:Null}"
+                        Height="20"
+                        Width="20"
+                        BorderBrush="{x:Null}">
+                        <materialDesign:PackIcon
+                            Kind="FileExport"
+                            Height="20"
+                            Width=" 20"
+                            Foreground="Black"
+                            Margin=" -16 -5 -5 -5 " />
+                    </Button>
                 </Border>
                 <Border
                     HorizontalAlignment="Right"
@@ -145,7 +158,7 @@
                 </Border>
                 <Border
                     HorizontalAlignment="Right"
-                    Margin="5 5 50 5"
+                    Margin="5 5 80 5"
                     Background="White"
                     CornerRadius="15"
                     Height="30"

@@ -13,13 +13,6 @@ namespace Tour_agency.Helper
     {
         FirebaseClient client = new FirebaseClient("https://traver-agency.firebaseio.com/");
 
-
-
-  
-
-      
-       
-
         public async Task<List<Client>> GetAllAsync()
         {
             return (await client
@@ -53,7 +46,6 @@ namespace Tour_agency.Helper
                     returnDate = newClient.returnDate
                 });
         }
-
         public async Task UpdateAsync(Client updateClient)
         {
             var toUpdateClient = (await client
@@ -108,7 +100,6 @@ namespace Tour_agency.Helper
                 value.Hour.ToString() +
                 value.Second.ToString() +
                 "P";
-
         }
 
        
