@@ -64,7 +64,7 @@
                 BorderThickness="1.5"
                 BorderBrush="#FF818080"
                 Grid.RowSpan="2">
-            <TextBox Text="{Binding Path=name, ValidatesOnDataErrors=True,
+            <TextBox Text="{Binding Path=Name, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
                      ToolTip="{Binding TourErrorCollection[name]}"
                      x:Name="name"
@@ -97,7 +97,7 @@
                 Margin="5,6,220,6"
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
-            <TextBox Text="{Binding Path=price, ValidatesOnDataErrors=True,
+            <TextBox Text="{Binding Path=Price, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
                      ToolTip="{Binding TourErrorCollection[price]}"
                      Name="price"
@@ -130,7 +130,7 @@
                 Margin="5,6,180,6"
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
-            <TextBox Text="{Binding Path=country, ValidatesOnDataErrors=True,
+            <TextBox Text="{Binding Path=Country, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
                      ToolTip="{Binding TourErrorCollection[country]}"
                      Name="country"
@@ -163,7 +163,7 @@
                 Margin="5,6,180,6"
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
-            <TextBox Text="{Binding Path=hotel, ValidatesOnDataErrors=True,
+            <TextBox Text="{Binding Path=Hotel, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
                      ToolTip="{Binding TourErrorCollection[hotel]}"
                      Name="hotel"
@@ -196,7 +196,7 @@
                 Margin="5,6,10,6"
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
-            <TextBox Text="{Binding Path=description}"
+            <TextBox Text="{Binding Path=Description}"
                      Name="description"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -292,19 +292,7 @@
                        Foreground="LightGray"
                        FontSize="18"
                        Margin="5,5,5,-6" />
-            <!--<StackPanel Width="45" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top">
-                -->
-            <!--<Button
-                    Name="Button_close" 
-                    Height="28" 
-                    Background="{x:Null}"
-                    BorderBrush="{x:Null}"
-                    Click="Button_close_Click"
-                    Focusable="False">
-                    <materialDesign:PackIcon  Kind="Close" />
-                </Button>-->
-            <!--
-            </StackPanel>-->
+           
 
         </Grid>
 

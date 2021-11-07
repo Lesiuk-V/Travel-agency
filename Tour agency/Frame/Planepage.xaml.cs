@@ -78,7 +78,7 @@ namespace Tour_agency.Frame
                     if (DataGrid.SelectedItem != null)
                     {
                         Tour toDeleteTour = DataGrid.SelectedItem as Tour;
-                        await tourHelper.DeleteAsync(toDeleteTour.id);
+                        await tourHelper.DeleteAsync(toDeleteTour.Id);
                     }
                     break;
                 case MessageBoxResult.No:
@@ -116,28 +116,28 @@ namespace Tour_agency.Frame
             if (SearchByCombobox.SelectedIndex == 0)
             {
                 var SearchedList = (from tour in tourCollection
-                                    where tour.name.ToLower().StartsWith(SearchTextBox.Text.ToLower())
+                                    where tour.Name.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select tour).ToList();
                 DataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 1)
             {
                 var SearchedList = (from tour in tourCollection
-                                    where tour.price.ToLower().StartsWith(SearchTextBox.Text.ToLower())
+                                    where tour.Price.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select tour).ToList();
                 DataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 2)
             {
                 var SearchedList = (from tour in tourCollection
-                                    where tour.country.ToLower().StartsWith(SearchTextBox.Text.ToLower())
+                                    where tour.Country.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select tour).ToList();
                 DataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 3)
             {
                 var SearchedList = (from tour in tourCollection
-                                    where tour.hotel.ToLower().StartsWith(SearchTextBox.Text.ToLower())
+                                    where tour.Hotel.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select tour).ToList();
                 DataGrid.ItemsSource = SearchedList;
             }
@@ -164,7 +164,7 @@ namespace Tour_agency.Frame
             TextWriter tw = new StreamWriter("TourList.txt");
 
             foreach (Tour s in tourCollection)
-                tw.WriteLine("Tour name: " + s.name + " Price: " + s.price + " Country: " + s.country + " Hotel: " + s.hotel + "Description: " + s.description);
+                tw.WriteLine("Tour name: " + s.Name + " Price: " + s.Price + " Country: " + s.Country + " Hotel: " + s.Hotel + "Description: " + s.Description);
 
             tw.Close();
             MessageBox.Show("Дані успішно збережені");

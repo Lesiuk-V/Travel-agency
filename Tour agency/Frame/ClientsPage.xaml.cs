@@ -76,7 +76,7 @@ namespace Tour_agency.Frame
                     if (ClientsDataGrid.SelectedItem != null)
                     {
                         Client toDeleteWorker = ClientsDataGrid.SelectedItem as Client;
-                        await clientHelper.DeleteAsync(toDeleteWorker.id);
+                        await clientHelper.DeleteAsync(toDeleteWorker.Id);
                     }
                     break;
                 case MessageBoxResult.No:
@@ -103,42 +103,42 @@ namespace Tour_agency.Frame
             if (SearchByCombobox.SelectedIndex == 0)
             {
                 var SearchedList = (from client in ClientCollection
-                                    where client.name.ToLower().StartsWith(SearchTextBox.Text.ToLower())
+                                    where client.Name.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select client).ToList();
                 ClientsDataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 1)
             {
                 var SearchedList = (from worker in ClientCollection
-                                    where worker.surname.ToLower().StartsWith(SearchTextBox.Text.ToLower())
+                                    where worker.Surname.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select worker).ToList();
                 ClientsDataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 2)
             {
                 var SearchedList = (from worker in ClientCollection
-                                    where worker.patronymic.ToLower().StartsWith(SearchTextBox.Text.ToLower())
+                                    where worker.Patronymic.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select worker).ToList();
                 ClientsDataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 3)
             {
                 var SearchedList = (from worker in ClientCollection
-                                    where worker.phone.ToLower().StartsWith(SearchTextBox.Text.ToLower())
+                                    where worker.Phone.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select worker).ToList();
                 ClientsDataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 4)
             {
                 var SearchedList = (from worker in ClientCollection
-                                    where worker.dateOFDeparture.ToLower().StartsWith(SearchTextBox.Text.ToLower())
+                                    where worker.DateOFDeparture.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select worker).ToList();
                 ClientsDataGrid.ItemsSource = SearchedList;
             }
             if (SearchByCombobox.SelectedIndex == 5)
             {
                 var SearchedList = (from worker in ClientCollection
-                                    where worker.returnDate.ToLower().StartsWith(SearchTextBox.Text.ToLower())
+                                    where worker.ReturnDate.ToLower().StartsWith(SearchTextBox.Text.ToLower())
                                     select worker).ToList();
                 ClientsDataGrid.ItemsSource = SearchedList;
             }
@@ -166,7 +166,7 @@ namespace Tour_agency.Frame
             TextWriter tw = new StreamWriter("ClientList.txt");
             tw.WriteLine("Ім'я \t Прізвище \t По батькові \t Тур\n");
             foreach (Client s in ClientCollection)
-                tw.WriteLine(s.name + '\t' + s.surname + '\t' + s.patronymic + '\t' + await tourHelper.GetTour(s.idTour));
+                tw.WriteLine(s.Name + '\t' + s.Surname + '\t' + s.Patronymic + '\t' + await tourHelper.GetTour(s.IdTour));
             
             tw.Close();
             MessageBox.Show("Дані успішно збережені");

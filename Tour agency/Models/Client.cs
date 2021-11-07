@@ -20,45 +20,51 @@ namespace Tour_agency.Models
                 string result = null;
                 switch (columnName)
                 {
-                    case "name":
-                        if (string.IsNullOrEmpty(name))
+                    case "Name":
+                        if (string.IsNullOrEmpty(Name))
                         {
                             result = "Ім'я клієнта не може бути порожнє "; ;
                         }
                         break;
-                    case "surname":
-                        if (string.IsNullOrEmpty(surname))
+                    case "Surname":
+                        if (string.IsNullOrEmpty(Surname))
                         {
                             result = "Прізвище клієнта не може бути порожнє ";
                         }
                         break;
-                    case "patronymic":
-                        if (string.IsNullOrEmpty(patronymic))
+                    case "Patronymic":
+                        if (string.IsNullOrEmpty(Patronymic))
                         {
                             result = "по батькові клієнта не може бути порожнє ";
                         }
                         break;
-                    case "phone":
-                        if (string.IsNullOrEmpty(phone))
+                    case "Phone":
+                        if (string.IsNullOrEmpty(Phone))
                         {
                             result = "Номер телефону клієнта не може бути порожнє ";
                         }
                         break;
-                    case "dateOFDeparture":
-                        if (string.IsNullOrEmpty(dateOFDeparture))
+                    case "DateOFDeparture":
+                        if (string.IsNullOrEmpty(DateOFDeparture))
                         {
                             result = "Дата відправлення не може бути порожнє ";
                         }
                         break;
-                    case "returnDate":
-                        if (string.IsNullOrEmpty(returnDate))
+                    case "ReturnDate":
+                        if (string.IsNullOrEmpty(ReturnDate))
                         {
                             result = "Дата повернення не може бути порожнє ";
                         }
                         break;
+                    case "IdTour":
+                        if(string.IsNullOrEmpty(IdTour))
+                        {
+                            result = "Виберіть тур";
+                        }
+                        break;
                 }
 
-               /* if (ClientsErrorCollection.ContainsKey(columnName))
+                if (ClientsErrorCollection.ContainsKey(columnName))
                 {
                     ClientsErrorCollection[columnName] = result;
                 }
@@ -69,48 +75,36 @@ namespace Tour_agency.Models
 
                 if (result != null)
                     return "!";
-                else return "";*/
-
-                if (ClientsErrorCollection.ContainsKey(columnName))//Якщо колекція вже має ключ(тобто, наше поле), більше його не треба створювати, натомість, додати тільки текст помилки
-                {
-                    ClientsErrorCollection[columnName] = result;
-                }
-                else if (result != null)
-                    ClientsErrorCollection.Add(columnName, result);//Якщо колекція ще не має такого ключа - додати і ключ, і текст помилки
-
-                if (result != null)
-                {
-                    CanSave = false;
-                }
-                else
-                {
-                    CanSave = true;
-                }
-
-                OnPropertyChanged("WorkersErrorCollection");
-
-                return result == null ? string.Empty : "!";
+                else return "";
             }
         }
 
-        private bool canSave;
-        public bool CanSave
-        {
-            get
-            {
-                return canSave;
-            }
-            set
-            {
-                canSave = value;
-                OnPropertyChanged("CanSave");
-            }
-        }
+
         #endregion
-        public string phone { get; set; }
-        public string idTour { get; set; }
-        public string dateOFDeparture { get; set; }
-        public string returnDate { get; set; }
+        private string _phone;
+        private string _idTour;
+        private string _dateOfDeparture;
+        private string _returnDate;
+        public string Phone 
+        { 
+            get => _phone;
+            set => _phone = value;
+        }
+        public string IdTour 
+        {
+            get => _idTour;
+            set => _idTour = value;
+        }
+        public string DateOFDeparture 
+        {
+            get => _dateOfDeparture;
+            set => _dateOfDeparture = value;
+        }
+        public string ReturnDate 
+        {
+            get => _returnDate;
+            set => _returnDate = value;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

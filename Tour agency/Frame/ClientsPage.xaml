@@ -42,22 +42,22 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn
                             Header="Ім'я"
-                            Binding="{Binding Path=name}"/>
+                            Binding="{Binding Path=Name}"/>
                             <DataGridTextColumn
                             Header="Прізвище"
-                            Binding="{Binding Path=surname}"/>
+                            Binding="{Binding Path=Surname}"/>
                             <DataGridTextColumn
                             Header="По батькові"
-                            Binding="{Binding Path=patronymic}"/>
+                            Binding="{Binding Path=Patronymic}"/>
                             <DataGridTextColumn
                             Header="Номер телефону"
-                            Binding="{Binding Path=phone}"/>
+                            Binding="{Binding Path=Phone}"/>
                             <DataGridTextColumn
                             Header="Дата відправлення"
-                            Binding="{Binding Path=dateOFDeparture}"/>
+                            Binding="{Binding Path=DateOFDeparture}"/>
                             <DataGridTextColumn
                             Header="Дата повернення"
-                            Binding="{Binding Path=returnDate}"/>
+                            Binding="{Binding Path=ReturnDate}"/>
                         </DataGrid.Columns>
                         <DataGrid.OpacityMask>
                             <VisualBrush

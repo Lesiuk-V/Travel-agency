@@ -50,7 +50,7 @@ namespace Tour_agency.Aditional_windows
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
         private void ConvertByteToImage()
         { 
-            byte[] b = Convert.FromBase64String(Tour.image);
+            byte[] b = Convert.FromBase64String(Tour.Image);
 
             using (var ms = new MemoryStream(b))
             {
@@ -70,18 +70,18 @@ namespace Tour_agency.Aditional_windows
             if (name.Text != "" && price.Text != "" && country.Text !="" && hotel.Text != "" && description.Text != "")
             {
                 Tour tour = new Tour();
-                tour.name = name.Text;
-                tour.price = price.Text;
-                tour.country = country.Text;
-                tour.hotel = hotel.Text;
-                tour.description = description.Text;
+                tour.Name = name.Text;
+                tour.Price = price.Text;
+                tour.Country = country.Text;
+                tour.Hotel = hotel.Text;
+                tour.Description = description.Text;
 
 
                 if (edited == false)
                 {
                     if (tourImageToFirebase != null)
                     {
-                        tour.image = Convert.ToBase64String(tourImageToFirebase);
+                        tour.Image = Convert.ToBase64String(tourImageToFirebase);
                         await tourHelper.AddAsync(tour);
                         close = true;
                     }
@@ -98,14 +98,14 @@ namespace Tour_agency.Aditional_windows
                     if (tourImageToFirebase == null)
                     {
 
-                        tour.id = Tour.id;
-                        tour.image = Tour.image;
+                        tour.Id = Tour.Id;
+                        tour.Image = Tour.Image;
                         await tourHelper.UpdateAsync(tour);
                     }
                     else
                     {
-                        tour.id = Tour.id;
-                        tour.image = Convert.ToBase64String(tourImageToFirebase);
+                        tour.Id = Tour.Id;
+                        tour.Image = Convert.ToBase64String(tourImageToFirebase);
                         await tourHelper.UpdateAsync(tour);
                     }
                 }
@@ -128,7 +128,7 @@ namespace Tour_agency.Aditional_windows
             {
                 case MessageBoxResult.Yes:
                     Close();
-                    await tourHelper.DeleteAsync(Tour.id);
+                    await tourHelper.DeleteAsync(Tour.Id);
                     break;
                 case MessageBoxResult.No:
                     break;

@@ -85,7 +85,7 @@
                                             </Border>
                                             <TextBlock
                                                 Margin="8"
-                                                Text="{Binding description}"
+                                                Text="{Binding Description}"
                                                 FontSize="12"
                                                 TextWrapping="Wrap" />
 
@@ -97,7 +97,7 @@
                                             
                                             Margin="0,0,10,10"
                                             Height="30"
-                                            Text="{Binding price, StringFormat={}{0:C} $}"
+                                            Text="{Binding Price, StringFormat={}{0:C} $}"
                                             FontSize="18"
                                             FontStyle="Italic"
                                             FontWeight="Bold" />

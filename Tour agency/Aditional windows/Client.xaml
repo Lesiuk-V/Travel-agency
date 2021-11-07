@@ -62,9 +62,9 @@
                 Margin="5,6,255,6"
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
-            <TextBox Text="{Binding Path=name, ValidatesOnDataErrors=True,
+            <TextBox Text="{Binding Path=Name, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
-                     ToolTip="{Binding ClientsErrorCollection[name]}"
+                     ToolTip="{Binding ClientsErrorCollection[Name]}"
                      x:Name="name"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -95,9 +95,9 @@
                 Margin="205,6,45,6"
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
-            <TextBox Text="{Binding Path=surname, ValidatesOnDataErrors=True,
+            <TextBox Text="{Binding Path=Surname, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
-                     ToolTip="{Binding ClientsErrorCollection[surname]}"
+                     ToolTip="{Binding ClientsErrorCollection[Surname]}"
                      x:Name="surname"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -128,9 +128,9 @@
                 Margin="5,6,285,6"
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
-            <TextBox Text="{Binding Path=patronymic, ValidatesOnDataErrors=True,
+            <TextBox Text="{Binding Path=Patronymic, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
-                     ToolTip="{Binding ClientsErrorCollection[patronymic]}"
+                     ToolTip="{Binding ClientsErrorCollection[Patronymic]}"
                      Name="patronymic"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -161,9 +161,9 @@
                 Margin="5,6,250,6"
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
-            <TextBox Text="{Binding Path=phone, ValidatesOnDataErrors=True,
+            <TextBox Text="{Binding Path=Phone, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
-                     ToolTip="{Binding ClientsErrorCollection[phone]}"
+                     ToolTip="{Binding ClientsErrorCollection[Phone]}"
                      Name="phone"
                      Margin="0 1 0 0"
                      Foreground="Black"
@@ -204,10 +204,11 @@
                       Foreground="Black"
                       materialDesign:HintAssist.Hint="Тур"
                       Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
+                <ComboBox.ItemTemplate >
+                    <DataTemplate >
                         <StackPanel>
-                            <TextBlock Text="{Binding Path=name}" />
+                            <TextBlock Text="{Binding Path=Name,  ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding ClientsErrorCollection[Name]}"  />
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
@@ -220,9 +221,9 @@
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
             <DatePicker x:Name="dateOfDeparture"
-                        Text="{Binding Path=dateOFDeparture, ValidatesOnDataErrors=True,
+                        Text="{Binding Path=DateOFDeparture, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
-                        ToolTip="{Binding ClientsErrorCollection[dateOFDeparture]}"
+                        ToolTip="{Binding ClientsErrorCollection[DateOFDeparture]}"
                         Margin="0 1 0 0"
                         Foreground="Black"
                         materialDesign:HintAssist.FloatingScale="0.8"
@@ -248,9 +249,9 @@
                 BorderThickness="1.5"
                 BorderBrush="#FF818080">
             <DatePicker x:Name="returnDate"
-                        Text="{Binding Path=returnDate, ValidatesOnDataErrors=True,
+                        Text="{Binding Path=ReturnDate, ValidatesOnDataErrors=True,
                     UpdateSourceTrigger=PropertyChanged}"
-                        ToolTip="{Binding ClientsErrorCollection[returnDate]}"
+                        ToolTip="{Binding ClientsErrorCollection[ReturnDate]}"
                         Margin="0 1 0 0"
                         Foreground="Black"
                         materialDesign:HintAssist.FloatingScale="0.8"

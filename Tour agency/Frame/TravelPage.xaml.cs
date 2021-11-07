@@ -51,9 +51,9 @@ namespace Tour_agency.Frame
             toursList = await tourHelper.GetAllAsync();
             foreach(var t in toursList)
             {
-                if (t.image != null)
+                if (t.Image != null)
                 {
-                    byte[] b = Convert.FromBase64String(t.image);
+                    byte[] b = Convert.FromBase64String(t.Image);
 
                     using (var ms = new MemoryStream(b))
                     {

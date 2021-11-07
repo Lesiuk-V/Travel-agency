@@ -44,22 +44,22 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn
                             Header="Назва"
-                            Binding="{Binding Path=name}"/>
+                            Binding="{Binding Path=Name}"/>
                             <DataGridTextColumn
                             Header="Ціна"
-                            Binding="{Binding Path=price}"/>
+                            Binding="{Binding Path=Price}"/>
                             <DataGridTextColumn
                             Header="Країна"
-                            Binding="{Binding Path=country}"/>
+                            Binding="{Binding Path=Country}"/>
                             <DataGridTextColumn
                             Header="Готель"
-                            Binding="{Binding Path=hotel}"/>
+                            Binding="{Binding Path=Hotel}"/>
                             <DataGridTextColumn/>
                         </DataGrid.Columns>
                         <DataGrid.RowDetailsTemplate>
                             <DataTemplate>
                                 <TextBlock
-                                Text="{Binding Path=description}"
+                                Text="{Binding Path=Description}"
                                 Margin="10" />
                             </DataTemplate>
                         </DataGrid.RowDetailsTemplate>

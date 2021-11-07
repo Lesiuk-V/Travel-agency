@@ -70,13 +70,13 @@ namespace Tour_agency.Aditional_windows
             if (name.Text != "" && surname.Text != "" && patronymic.Text != "" && phone.Text != "" && tourId != "" && dateOfDeparture.Text != null && returnDate.Text != null )
             {
                 Client client = new Client();
-                client.name = name.Text;
-                client.surname = surname.Text;
-                client.patronymic = patronymic.Text;
-                client.phone = phone.Text;
-                client.idTour = tourId;
-                client.dateOFDeparture = dateOfDeparture.Text;
-                client.returnDate = returnDate.Text;
+                client.Name = name.Text;
+                client.Surname = surname.Text;
+                client.Patronymic = patronymic.Text;
+                client.Phone = phone.Text;
+                client.IdTour = tourId;
+                client.DateOFDeparture = dateOfDeparture.Text;
+                client.ReturnDate = returnDate.Text;
                 try
                 {
                     if (edited == false)
@@ -85,16 +85,14 @@ namespace Tour_agency.Aditional_windows
                     }
                     else if (edited == true)
                     {
-                        client.id = Client.id;
+                        client.Id = Client.Id;
                         await clientHelper.UpdateAsync(client);
                     }
                 }
-
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-
                 Close();
             }
             else
@@ -108,7 +106,7 @@ namespace Tour_agency.Aditional_windows
             {
                 case MessageBoxResult.Yes:
                     Close();
-                    await clientHelper.DeleteAsync(Client.id);
+                    await clientHelper.DeleteAsync(Client.Id);
                     break;
                 case MessageBoxResult.No:
                     break;
@@ -120,10 +118,10 @@ namespace Tour_agency.Aditional_windows
            
             if (edited == true)
             {
-                Tour specificTour = await tourHelper.GetTourIdAndName(Client.idTour);
+                Tour specificTour = await tourHelper.GetTourIdAndName(Client.IdTour);
                 if (specificTour != null)
                 {
-                    string tourName = specificTour.name;
+                    string tourName = specificTour.Name;
                    
                     tour.Text = tourName;
                 }
@@ -135,7 +133,7 @@ namespace Tour_agency.Aditional_windows
             if (tour.SelectedItem != null)
             {
                 Tour selectedTour = tour.SelectedItem as Tour;
-                tourId = selectedTour.id;
+                tourId = selectedTour.Id;
             }
         }
     }

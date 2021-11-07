@@ -20,13 +20,13 @@ namespace Tour_agency.Helper
                 .Child("Tour")
                 .OnceAsync<Tour>()).Select(item => new Tour
                 {
-                    id = item.Object.id,
-                    name = item.Object.name,
-                    price = item.Object.price,
-                    country = item.Object.country,
-                    hotel = item.Object.hotel,
-                    description = item.Object.description,
-                    image = item.Object.image
+                    Id = item.Object.Id,
+                    Name = item.Object.Name,
+                    Price = item.Object.Price,
+                    Country = item.Object.Country,
+                    Hotel = item.Object.Hotel,
+                    Description = item.Object.Description,
+                    Image = item.Object.Image
                 }).ToList();
         }
 
@@ -36,8 +36,8 @@ namespace Tour_agency.Helper
                 .Child("Tour")
                 .OnceAsync<Tour>()).Select(item => new Tour
                 {
-                    id = item.Object.id,
-                    name = item.Object.name
+                    Id = item.Object.Id,
+                    Name = item.Object.Name
              
                 }).ToList();
         }
@@ -49,7 +49,7 @@ namespace Tour_agency.Helper
                 .Child("Tour")
                 .OnceAsync<Tour>();
 
-            return allTours.Where(t => t.id == ID).FirstOrDefault();
+            return allTours.Where(t => t.Id == ID).FirstOrDefault();
         }
 
         public async Task<Tour> GetTour(string ID)
@@ -59,7 +59,7 @@ namespace Tour_agency.Helper
                 .Child("Tour")
                 .OnceAsync<Tour>();
 
-            return allTours.Where(t => t.id == ID).FirstOrDefault();
+            return allTours.Where(t => t.Id == ID).FirstOrDefault();
         }
         public async Task AddAsync(Tour newTour)
         {
@@ -67,13 +67,13 @@ namespace Tour_agency.Helper
                 .Child("Tour")
                 .PostAsync(new Tour()
                 {
-                    id = GetRandomId(),//отримання нового згенерованого айді
-                    name = newTour.name,
-                    price = newTour.price,
-                    country = newTour.country,
-                    hotel = newTour.hotel,
-                    description = newTour.description,
-                    image = newTour.image
+                    Id = GetRandomId(),//отримання нового згенерованого айді
+                    Name = newTour.Name,
+                    Price = newTour.Price,
+                    Country = newTour.Country,
+                    Hotel = newTour.Hotel,
+                    Description = newTour.Description,
+                    Image = newTour.Image
                 }) ;
         }
 
@@ -82,12 +82,12 @@ namespace Tour_agency.Helper
         {
             var toUpdateProduct = (await tour
                 .Child("Tour")
-                .OnceAsync<Tour>()).Where(a => a.Object.id == updateTour.id).FirstOrDefault(); //шукаємо продукт за переданим в метод айді
+                .OnceAsync<Tour>()).Where(a => a.Object.Id == updateTour.Id).FirstOrDefault(); //шукаємо продукт за переданим в метод айді
 
             await tour
                 .Child("Tour")
                 .Child(toUpdateProduct.Key)//звертаємося до конкретного запису в сервері за ключем
-                .PutAsync(new Tour { id = updateTour.id, name = updateTour.name, price = updateTour.price, country = updateTour.country, hotel = updateTour.hotel, description = updateTour.description, image = updateTour.image });
+                .PutAsync(new Tour { Id = updateTour.Id, Name = updateTour.Name, Price = updateTour.Price, Country = updateTour.Country, Hotel = updateTour.Hotel, Description = updateTour.Description, Image = updateTour.Image });
         }
 
         //Метод видалення конкретного продукту
@@ -95,7 +95,7 @@ namespace Tour_agency.Helper
         {
             var toDeleteProduct = (await tour
                 .Child("Tour")
-                .OnceAsync<Tour>()).Where(a => a.Object.id == ID).FirstOrDefault();//шукаємо продукт за переданим в метод айді
+                .OnceAsync<Tour>()).Where(a => a.Object.Id == ID).FirstOrDefault();//шукаємо продукт за переданим в метод айді
             await tour.Child("Tour").Child(toDeleteProduct.Key).DeleteAsync();
         }
         //Метод генерування нового айді

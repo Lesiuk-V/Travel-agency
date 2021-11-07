@@ -19,14 +19,14 @@ namespace Tour_agency.Helper
                 .Child("Client")
                 .OnceAsync<Client>()).Select(item => new Client
                 {
-                    id = item.Object.id,
-                    name = item.Object.name,
-                    surname = item.Object.surname,
-                    patronymic = item.Object.patronymic,
-                    phone = item.Object.phone,
-                    idTour = item.Object.idTour,
-                    returnDate = item.Object.returnDate,
-                    dateOFDeparture = item.Object.dateOFDeparture
+                    Id = item.Object.Id,
+                    Name = item.Object.Name,
+                    Surname = item.Object.Surname,
+                    Patronymic = item.Object.Patronymic,
+                    Phone = item.Object.Phone,
+                    IdTour = item.Object.IdTour,
+                    ReturnDate = item.Object.ReturnDate,
+                    DateOFDeparture = item.Object.DateOFDeparture
                 }).ToList();
         }
 
@@ -36,35 +36,35 @@ namespace Tour_agency.Helper
                 .Child("Client")
                 .PostAsync(new Client()
                 {
-                    id = GetRandomId(),
-                    name = newClient.name,
-                    surname = newClient.surname,
-                    patronymic = newClient.patronymic,
-                    phone = newClient.phone,
-                    idTour = newClient.idTour,
-                    dateOFDeparture = newClient.dateOFDeparture,
-                    returnDate = newClient.returnDate
+                    Id = GetRandomId(),
+                    Name = newClient.Name,
+                    Surname = newClient.Surname,
+                    Patronymic = newClient.Patronymic,
+                    Phone = newClient.Phone,
+                    IdTour = newClient.IdTour,
+                    DateOFDeparture = newClient.DateOFDeparture,
+                    ReturnDate = newClient.ReturnDate
                 });
         }
         public async Task UpdateAsync(Client updateClient)
         {
             var toUpdateClient = (await client
                 .Child("Client")
-                .OnceAsync<Client>()).Where(a => a.Object.id == updateClient.id).FirstOrDefault();
+                .OnceAsync<Client>()).Where(a => a.Object.Id == updateClient.Id).FirstOrDefault();
 
             await client
                 .Child("Client")
                 .Child(toUpdateClient.Key)
-                .PutAsync(new Client { id = updateClient.id, name = updateClient.name, surname = updateClient.surname,
-                 patronymic = updateClient.patronymic, phone = updateClient.phone, idTour = updateClient.idTour, dateOFDeparture = updateClient.dateOFDeparture,
-                 returnDate = updateClient.returnDate});
+                .PutAsync(new Client { Id = updateClient.Id, Name = updateClient.Name, Surname = updateClient.Surname,
+                 Patronymic = updateClient.Patronymic, Phone = updateClient.Phone, IdTour = updateClient.IdTour, DateOFDeparture = updateClient.DateOFDeparture,
+                 ReturnDate = updateClient.ReturnDate});
         }
 
         public async Task DeleteAsync(string ID)
         {
             var toDeleteProduct = (await client
                 .Child("Client")
-                .OnceAsync<Client>()).Where(a => a.Object.id == ID).FirstOrDefault();
+                .OnceAsync<Client>()).Where(a => a.Object.Id == ID).FirstOrDefault();
             await client.Child("Client").Child(toDeleteProduct.Key).DeleteAsync();
         }
 
@@ -75,7 +75,7 @@ namespace Tour_agency.Helper
                 .Child("client")
                 .OnceAsync<Client>();
 
-            return allClients.Where(c => c.id == ID).FirstOrDefault();
+            return allClients.Where(c => c.Id == ID).FirstOrDefault();
         }
 
         #region Random ID FOR Clients
