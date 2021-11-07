@@ -286,19 +286,21 @@
                                          Margin="-10"
                                          Kind="TrashCan" />
             </Button>
-            <Button Foreground="#FF02D802"
-                    Name="Button_add"
-                    Margin=" 0 5 5 5 "
-                    Height="40"
-                    Width="50"
-                    Background="{x:Null}"
-                    BorderBrush="{x:Null}"
-                    Click="Button_add_Click"
-                    Focusable="False">
-                <materialDesign:PackIcon Height="25"
-                                         Width="25"
-                                         Margin="-10"
-                                         Kind="ContentSaveMove" />
+            <Button
+                Foreground="#FF02D802"
+                Name="Button_add"
+                Margin=" 0 5 5 5 "
+                Height="40"
+                Width="50"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Click="Button_add_Click"
+                Focusable="False">
+                <materialDesign:PackIcon 
+                Height="25"
+                Width="25"
+                Margin="-10"
+                Kind="ContentSaveMove" />
             </Button>
         </StackPanel>
         <Grid MouseDown="Grid_MouseDown"

@@ -58,7 +58,7 @@ namespace Tour_agency.Models
                         break;
                 }
 
-                if (ClientsErrorCollection.ContainsKey(columnName))
+               /* if (ClientsErrorCollection.ContainsKey(columnName))
                 {
                     ClientsErrorCollection[columnName] = result;
                 }
@@ -69,7 +69,41 @@ namespace Tour_agency.Models
 
                 if (result != null)
                     return "!";
-                else return "";
+                else return "";*/
+
+                if (ClientsErrorCollection.ContainsKey(columnName))//Якщо колекція вже має ключ(тобто, наше поле), більше його не треба створювати, натомість, додати тільки текст помилки
+                {
+                    ClientsErrorCollection[columnName] = result;
+                }
+                else if (result != null)
+                    ClientsErrorCollection.Add(columnName, result);//Якщо колекція ще не має такого ключа - додати і ключ, і текст помилки
+
+                if (result != null)
+                {
+                    CanSave = false;
+                }
+                else
+                {
+                    CanSave = true;
+                }
+
+                OnPropertyChanged("WorkersErrorCollection");
+
+                return result == null ? string.Empty : "!";
+            }
+        }
+
+        private bool canSave;
+        public bool CanSave
+        {
+            get
+            {
+                return canSave;
+            }
+            set
+            {
+                canSave = value;
+                OnPropertyChanged("CanSave");
             }
         }
         #endregion

@@ -66,43 +66,39 @@ namespace Tour_agency.Aditional_windows
 
         private async void Button_add_Click(object sender, RoutedEventArgs e)
         {
-
-            try
+            
+            if (name.Text != "" && surname.Text != "" && patronymic.Text != "" && phone.Text != "" && tourId != "" && dateOfDeparture.Text != null && returnDate.Text != null )
             {
+                Client client = new Client();
+                client.name = name.Text;
+                client.surname = surname.Text;
+                client.patronymic = patronymic.Text;
+                client.phone = phone.Text;
+                client.idTour = tourId;
+                client.dateOFDeparture = dateOfDeparture.Text;
+                client.returnDate = returnDate.Text;
+                try
+                {
+                    if (edited == false)
+                    {
+                        await clientHelper.AddAsync(client);
+                    }
+                    else if (edited == true)
+                    {
+                        client.id = Client.id;
+                        await clientHelper.UpdateAsync(client);
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
                 Close();
-                if (edited == false)
-                {
-                    Client client = new Client();
-                    client.name = name.Text;
-                    client.surname = surname.Text;
-                    client.patronymic = patronymic.Text;
-                    client.phone = phone.Text;
-                    client.idTour = tourId;
-                    client.dateOFDeparture = dateOfDeparture.Text;
-                    client.returnDate = returnDate.Text;
-
-                    await clientHelper.AddAsync(client);
-                }
-                else if (edited == true)
-                {
-                    Client client = new Client();
-                    client.id = Client.id;
-                    client.name = name.Text;
-                    client.surname = surname.Text;
-                    client.patronymic = patronymic.Text;
-                    client.phone = phone.Text;
-                    client.idTour = tourId;
-                    client.dateOFDeparture = dateOfDeparture.Text;
-                    client.returnDate = returnDate.Text;
-                    await clientHelper.UpdateAsync(client);
-
-                }
             }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                MessageBox.Show("Заповніть всі поля");
         }
 
         private async void Button_delete_Click(object sender, RoutedEventArgs e)

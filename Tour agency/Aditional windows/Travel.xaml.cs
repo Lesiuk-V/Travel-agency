@@ -65,60 +65,60 @@ namespace Tour_agency.Aditional_windows
             DataContext = Tour;
         }
         private async void Button_add_Click(object sender, RoutedEventArgs e)
-
         {
-            if (edited == false)
+            bool close = true;
+            if (name.Text != "" && price.Text != "" && country.Text !="" && hotel.Text != "" && description.Text != "")
             {
-                if (tourImageToFirebase != null)
+                Tour tour = new Tour();
+                tour.name = name.Text;
+                tour.price = price.Text;
+                tour.country = country.Text;
+                tour.hotel = hotel.Text;
+                tour.description = description.Text;
+
+
+                if (edited == false)
+                {
+                    if (tourImageToFirebase != null)
+                    {
+                        tour.image = Convert.ToBase64String(tourImageToFirebase);
+                        await tourHelper.AddAsync(tour);
+                        close = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Виберіть зображення");
+                        close = false;
+                    }
+                }
+
+                else if (edited)
                 {
                     Close();
-                    Tour tour = new Tour();
-                    tour.name = name.Text;
-                    tour.price = price.Text;
-                    tour.country = country.Text;
-                    tour.hotel = hotel.Text;
-                    tour.description = description.Text;
-                    tour.image = Convert.ToBase64String(tourImageToFirebase);
-                    await tourHelper.AddAsync(tour);
-                }
-                else
-                {
-                    MessageBox.Show("Виберіть зображення");
-                }
+                    if (tourImageToFirebase == null)
+                    {
 
+                        tour.id = Tour.id;
+                        tour.image = Tour.image;
+                        await tourHelper.UpdateAsync(tour);
+                    }
+                    else
+                    {
+                        tour.id = Tour.id;
+                        tour.image = Convert.ToBase64String(tourImageToFirebase);
+                        await tourHelper.UpdateAsync(tour);
+                    }
+                }
+                
             }
-
-            else if (edited)
+            else
             {
-                Close();
-                if (tourImageToFirebase == null)
-                {
-                    Tour tour = new Tour();
-                    tour.id = Tour.id;
-                    tour.name = name.Text;
-                    tour.price = price.Text;
-                    tour.country = country.Text;
-                    tour.hotel = hotel.Text;
-                    tour.description = description.Text;
-                    tour.image = Tour.image;
-                    await tourHelper.UpdateAsync(tour);
-                }
-                else
-                {
-                    Tour tour = new Tour();
-                    tour.id = Tour.id;
-                    tour.name = name.Text;
-                    tour.price = price.Text;
-                    tour.country = country.Text;
-                    tour.hotel = hotel.Text;
-                    tour.description = description.Text;
-                    tour.image = Convert.ToBase64String(tourImageToFirebase);
-                    await tourHelper.UpdateAsync(tour);
-                }
-
+                MessageBox.Show("Заповніть всі поля");
+                close = false;
             }
-
-
+                
+            if (close == true)
+                Close();
         }
 
         private async void Button_delete_Click(object sender, RoutedEventArgs e)
