@@ -24,10 +24,10 @@ namespace Tour_agency.Aditional_windows
     /// </summary>
     public partial class Travel : Window
     {
-        bool edited = true;
-        TourHelper tourHelper = new TourHelper();
-        Tour Tour = new Tour();
-        byte[] tourImageToFirebase;
+        readonly bool edited = true;
+        readonly TourHelper tourHelper = new TourHelper();
+        readonly Tour Tour = new Tour();
+        private byte[] tourImageToFirebase;
         public Travel(Tour tour = null)
         {
             InitializeComponent();

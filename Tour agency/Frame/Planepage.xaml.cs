@@ -26,10 +26,10 @@ namespace Tour_agency.Frame
     /// </summary>
     public partial class Planepage : Page
     {
-        static ObservableCollection<Tour> tourCollection = new ObservableCollection<Tour>();
-        TourHelper tourHelper = new TourHelper();
-        static FirebaseClient tour = new FirebaseClient("https://traver-agency.firebaseio.com/");
-        static bool executed = true;
+        private static ObservableCollection<Tour> tourCollection = new ObservableCollection<Tour>();
+        private readonly TourHelper tourHelper = new TourHelper();
+        private static readonly FirebaseClient tour = new FirebaseClient("https://traver-agency.firebaseio.com/");
+        private static bool executed = true;
         public Planepage()
         {
             InitializeComponent();

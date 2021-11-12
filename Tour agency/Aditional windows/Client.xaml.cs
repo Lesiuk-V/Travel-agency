@@ -29,11 +29,11 @@ namespace Tour_agency.Aditional_windows
     {
        
         private string tourId;
-        private bool edited = true;
-        private ClientHelper clientHelper = new ClientHelper();
-        Client Client = new Client();
-        TourHelper tourHelper = new TourHelper();
-        List<Tour> ToursList; 
+        private readonly bool edited = true;
+        private readonly ClientHelper clientHelper = new ClientHelper();
+        readonly Client Client = new Client();
+        private readonly TourHelper tourHelper = new TourHelper();
+        private readonly List<Tour> ToursList; 
         public Costomers(Client client = null, in List<Tour> toursList = null)
         {
             InitializeComponent();

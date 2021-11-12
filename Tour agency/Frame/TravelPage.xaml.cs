@@ -31,7 +31,7 @@ namespace Tour_agency.Frame
    
     public partial class TravelPage : Page
     {
-        private TourHelper tourHelper = new TourHelper();
+        private readonly TourHelper tourHelper = new TourHelper();
         private List<Tour> ToursList { get; set; }
         public TravelPage()
         {

@@ -12,7 +12,7 @@ namespace Tour_agency
         /// <summary>
         /// The window this view model controls
         /// </summary>
-        private Window mWindow;
+        private readonly Window mWindow;
 
         /// <summary>
         /// The margin around the window to allow for a drop shadow

@@ -37,7 +37,7 @@ namespace Tour_agency
             /// <summary>
             /// The window to handle the resizing for
             /// </summary>
-            private Window mWindow;
+            private readonly Window mWindow;
 
             /// <summary>
             /// The last calculated available screen size
@@ -47,7 +47,7 @@ namespace Tour_agency
             /// <summary>
             /// How close to the edge the window has to be to be detected as at the edge of the screen
             /// </summary>
-            private int mEdgeTolerance = 2;
+            private readonly int mEdgeTolerance = 2;
 
             /// <summary>
             /// The transform matrix used to convert WPF sizes to screen pixels

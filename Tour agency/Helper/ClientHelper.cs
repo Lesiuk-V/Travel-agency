@@ -14,7 +14,7 @@ namespace Tour_agency.Helper
     /// </summary>
     public class ClientHelper : IHelper<Client>
     {
-       private FirebaseClient client = new FirebaseClient("https://traver-agency.firebaseio.com/");
+       private readonly FirebaseClient client = new FirebaseClient("https://traver-agency.firebaseio.com/");
         /// <summary>
         /// метод для отримання всіх клієнтів із бд
         /// </summary>

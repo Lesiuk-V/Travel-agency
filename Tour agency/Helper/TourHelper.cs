@@ -15,7 +15,7 @@ namespace Tour_agency.Helper
     /// </summary>
     public class TourHelper : IHelper<Tour>
     {
-        private FirebaseClient tour = new FirebaseClient("https://traver-agency.firebaseio.com/");//поле для зв'язку з віддаленим сервером Firebase
+        private readonly FirebaseClient tour = new FirebaseClient("https://traver-agency.firebaseio.com/");//поле для зв'язку з віддаленим сервером Firebase
 
         /// <summary>
         /// Метод для отримання всіх турів із бд

@@ -21,12 +21,12 @@ namespace Tour_agency.Frame
     /// </summary>
     public partial class CostomersPage : Page
     {
-        static ObservableCollection<Client> ClientCollection = new ObservableCollection<Client>();
-        ClientHelper clientHelper = new ClientHelper();
-        TourHelper tourHelper = new TourHelper();
-        static FirebaseClient client = new FirebaseClient("https://traver-agency.firebaseio.com/");
-        static bool executed = true;
-        List<Tour> ToursList;
+        private static ObservableCollection<Client> ClientCollection = new ObservableCollection<Client>();
+        private readonly ClientHelper clientHelper = new ClientHelper();
+        private readonly TourHelper tourHelper = new TourHelper();
+        private static readonly FirebaseClient client = new FirebaseClient("https://traver-agency.firebaseio.com/");
+        private static bool executed = true;
+        private List<Tour> ToursList;
         public CostomersPage()
         {
             InitializeComponent();
