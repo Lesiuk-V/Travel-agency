@@ -54,7 +54,7 @@ namespace Tour_agency
                     break;
                 case 2:
                     MainFrame.Content = null;
-                    MainFrame.Content = new CostomersPage();
+                    MainFrame.Content = new CustomersPage();
                     break;
 
                 default:

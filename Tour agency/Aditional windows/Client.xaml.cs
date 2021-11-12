@@ -25,7 +25,7 @@ namespace Tour_agency.Aditional_windows
     /// </summary>
     /// 
     
-    public partial class Costomers : Window
+    public partial class Customers : Window
     {
        
         private string tourId;
@@ -34,7 +34,7 @@ namespace Tour_agency.Aditional_windows
         readonly Client Client = new Client();
         private readonly TourHelper tourHelper = new TourHelper();
         private readonly List<Tour> ToursList; 
-        public Costomers(Client client = null, in List<Tour> toursList = null)
+        public Customers(Client client = null, in List<Tour> toursList = null)
         {
             InitializeComponent();
             if (toursList != null)
@@ -53,7 +53,7 @@ namespace Tour_agency.Aditional_windows
            
         }
 
-        void GetTours()
+        private void GetTours()
         {
             if(ToursList != null)
             tour.ItemsSource = ToursList;

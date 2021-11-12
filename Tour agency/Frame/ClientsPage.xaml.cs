@@ -19,7 +19,7 @@ namespace Tour_agency.Frame
     /// <summary>
     /// Interaction logic for Costomers.xaml
     /// </summary>
-    public partial class CostomersPage : Page
+    public partial class CustomersPage : Page
     {
         private static ObservableCollection<Client> ClientCollection = new ObservableCollection<Client>();
         private readonly ClientHelper clientHelper = new ClientHelper();
@@ -27,7 +27,7 @@ namespace Tour_agency.Frame
         private static readonly FirebaseClient client = new FirebaseClient("https://traver-agency.firebaseio.com/");
         private static bool executed = true;
         private List<Tour> ToursList;
-        public CostomersPage()
+        public CustomersPage()
         {
             InitializeComponent();
             if (executed)
@@ -56,13 +56,13 @@ namespace Tour_agency.Frame
         private void Edit()
         {
             Client specificclient = ClientsDataGrid.SelectedItem as Client;
-            Costomers costomers = new Costomers(specificclient); ;
+            Customers costomers = new Customers(specificclient); ;
             costomers.Show();
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            Costomers c = new Costomers(null, in ToursList);
+            Customers c = new Customers(null, in ToursList);
             c.ShowDialog();
         }
 
@@ -150,7 +150,7 @@ namespace Tour_agency.Frame
             if (ClientsDataGrid.SelectedIndex >= 0 && ClientsDataGrid.SelectedIndex < clientList.Count)
             {
                 Client specificClient = ClientsDataGrid.SelectedItem as Client;
-                Costomers client = new Costomers(specificClient, in ToursList);
+                Customers client = new Customers(specificClient, in ToursList);
                 client.ShowDialog();
             }
         }

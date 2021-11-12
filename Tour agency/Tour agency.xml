@@ -4,16 +4,16 @@
         <name>Tour agency</name>
     </assembly>
     <members>
-        <member name="T:Tour_agency.Aditional_windows.Costomers">
+        <member name="T:Tour_agency.Aditional_windows.Customers">
             <summary>
             Interaction logic for Costomers.xaml
             </summary>
             
             <summary>
-            Costomers
+            Customers
             </summary>
         </member>
-        <member name="M:Tour_agency.Aditional_windows.Costomers.InitializeComponent">
+        <member name="M:Tour_agency.Aditional_windows.Customers.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
@@ -49,15 +49,15 @@
             Application Entry Point.
             </summary>
         </member>
-        <member name="T:Tour_agency.Frame.CostomersPage">
+        <member name="T:Tour_agency.Frame.CustomersPage">
             <summary>
             Interaction logic for Costomers.xaml
             </summary>
             <summary>
-            CostomersPage
+            CustomersPage
             </summary>
         </member>
-        <member name="M:Tour_agency.Frame.CostomersPage.InitializeComponent">
+        <member name="M:Tour_agency.Frame.CustomersPage.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
