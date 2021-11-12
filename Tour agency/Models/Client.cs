@@ -5,14 +5,23 @@ using System.Text;
 
 namespace Tour_agency.Models
 {
-
+    /// <summary>
+    /// Клас для роботи із моделю клієнтів
+    /// </summary>
     public class Client : Person, INotifyPropertyChanged, IDataErrorInfo
     {
         #region Data Validation
+        /// <summary>
+        /// Поле для отримання помилок
+        /// </summary>
         public string Error { get { return null; } }
 
-        public Dictionary<string, string> ClientsErrorCollection { get; private set; } = new Dictionary<string, string>();
-
+        private Dictionary<string, string> ClientsErrorCollection { get; set; } = new Dictionary<string, string>();
+        /// <summary>
+        /// Методд який при зміні полів в текст боксах перевіряє чи валідні данні в них
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
         public string this[string columnName]
         {
             get
@@ -85,29 +94,46 @@ namespace Tour_agency.Models
         private string _idTour;
         private string _dateOfDeparture;
         private string _returnDate;
+        /// <summary>
+        /// Властивість для доступу до закритого поля _phone
+        /// </summary>
         public string Phone 
         { 
             get => _phone;
             set => _phone = value;
         }
+        /// <summary>
+        /// Властивість для доступу до закритого поля _idTour
+        /// </summary>
         public string IdTour 
         {
             get => _idTour;
             set => _idTour = value;
         }
+        /// <summary>
+        /// Властивість для доступу до закритого поля _dateOdFeparture
+        /// </summary>
         public string DateOFDeparture 
         {
             get => _dateOfDeparture;
             set => _dateOfDeparture = value;
         }
+        /// <summary>
+        /// Властивість для доступу до закритого поля  _returneDate
+        /// </summary>
         public string ReturnDate 
         {
             get => _returnDate;
             set => _returnDate = value;
         }
-
+        /// <summary>
+        /// івент який спрацьовіє при зміні даниз в текст боксі
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// Метод який викликає івент при зміні даних в текст боксі
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

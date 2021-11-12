@@ -9,11 +9,18 @@ using System.Threading.Tasks;
 using Tour_agency.Models;
 
 namespace Tour_agency.Helper
-{
+{   
+    /// <summary>
+    /// Клас для роботи із бд Турів
+    /// </summary>
     public class TourHelper : IHelper<Tour>
     {
-        FirebaseClient tour = new FirebaseClient("https://traver-agency.firebaseio.com/");//поле для зв'язку з віддаленим сервером Firebase
+        private FirebaseClient tour = new FirebaseClient("https://traver-agency.firebaseio.com/");//поле для зв'язку з віддаленим сервером Firebase
 
+        /// <summary>
+        /// Метод для отримання всіх турів із бд
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Tour>> GetAllAsync()
         {
             return (await tour
@@ -29,7 +36,10 @@ namespace Tour_agency.Helper
                     Image = item.Object.Image
                 }).ToList();
         }
-
+        /// <summary>
+        ///  Метод для отримання всіх id та імен туру
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Tour>> GetTourIdsAndNames()
         {
             return (await tour
@@ -41,8 +51,12 @@ namespace Tour_agency.Helper
              
                 }).ToList();
         }
-
-        public async Task<Tour> GetTourIdAndName(string ID)
+        /// <summary>
+        ///  Метод для отримання  назву туру по id
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public async Task<Tour> GetTourName(string ID)
         {
             var allTours = await GetTourIdsAndNames();
             await tour
@@ -51,7 +65,11 @@ namespace Tour_agency.Helper
 
             return allTours.Where(t => t.Id == ID).FirstOrDefault();
         }
-
+        /// <summary>
+        /// Метод для отриманння всіх даних про тур за його ід
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         public async Task<Tour> GetTour(string ID)
         {
             var allTours = await GetAllAsync();
@@ -61,13 +79,18 @@ namespace Tour_agency.Helper
 
             return allTours.Where(t => t.Id == ID).FirstOrDefault();
         }
+        /// <summary>
+        /// Метод для додавання даних про тур в бд
+        /// </summary>
+        /// <param name="newTour"></param>
+        /// <returns></returns>
         public async Task AddAsync(Tour newTour)
         {
             await tour
                 .Child("Tour")
                 .PostAsync(new Tour()
                 {
-                    Id = GetRandomId(),//отримання нового згенерованого айді
+                    Id = GetRandomId(),//отримання нового згенерованого ід
                     Name = newTour.Name,
                     Price = newTour.Price,
                     Country = newTour.Country,
@@ -77,12 +100,16 @@ namespace Tour_agency.Helper
                 }) ;
         }
 
-        //Метод оновлення даних конкретного продукту
+        /// <summary>
+        /// Метод оновлення даних туру
+        /// </summary>
+        /// <param name="updateTour"></param>
+        /// <returns></returns>
         public async Task UpdateAsync(Tour updateTour)
         {
             var toUpdateProduct = (await tour
                 .Child("Tour")
-                .OnceAsync<Tour>()).Where(a => a.Object.Id == updateTour.Id).FirstOrDefault(); //шукаємо продукт за переданим в метод айді
+                .OnceAsync<Tour>()).Where(a => a.Object.Id == updateTour.Id).FirstOrDefault(); //шукаємо тур за переданим в метод айді
 
             await tour
                 .Child("Tour")
@@ -90,17 +117,21 @@ namespace Tour_agency.Helper
                 .PutAsync(new Tour { Id = updateTour.Id, Name = updateTour.Name, Price = updateTour.Price, Country = updateTour.Country, Hotel = updateTour.Hotel, Description = updateTour.Description, Image = updateTour.Image });
         }
 
-        //Метод видалення конкретного продукту
+        /// <summary>
+        /// Метод видалення туру із бд за його ід
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         public async Task DeleteAsync(string ID)
         {
             var toDeleteProduct = (await tour
                 .Child("Tour")
-                .OnceAsync<Tour>()).Where(a => a.Object.Id == ID).FirstOrDefault();//шукаємо продукт за переданим в метод айді
+                .OnceAsync<Tour>()).Where(a => a.Object.Id == ID).FirstOrDefault();//шукаємо тур за переданим в метод ід
             await tour.Child("Tour").Child(toDeleteProduct.Key).DeleteAsync();
         }
         //Метод генерування нового айді
         #region Random ID FOR Tour
-        string GetRandomId()
+        private string GetRandomId()
         {
             Random rnd = new Random();
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

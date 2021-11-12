@@ -1,0 +1,657 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tour agency</name>
+    </assembly>
+    <members>
+        <member name="T:Tour_agency.Aditional_windows.Costomers">
+            <summary>
+            Interaction logic for Costomers.xaml
+            </summary>
+            
+            <summary>
+            Costomers
+            </summary>
+        </member>
+        <member name="M:Tour_agency.Aditional_windows.Costomers.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Tour_agency.Aditional_windows.Travel">
+            <summary>
+            Interaction logic for Travel.xaml
+            </summary>
+            <summary>
+            Travel
+            </summary>
+        </member>
+        <member name="M:Tour_agency.Aditional_windows.Travel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Tour_agency.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Tour_agency.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Tour_agency.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Tour_agency.Frame.CostomersPage">
+            <summary>
+            Interaction logic for Costomers.xaml
+            </summary>
+            <summary>
+            CostomersPage
+            </summary>
+        </member>
+        <member name="M:Tour_agency.Frame.CostomersPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Tour_agency.Frame.Planepage">
+            <summary>
+            Interaction logic for Planepage.xaml
+            </summary>
+            <summary>
+            Planepage
+            </summary>
+        </member>
+        <member name="M:Tour_agency.Frame.Planepage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Tour_agency.Frame.TravelPage">
+            <summary>
+            Interaction logic for Travelpage.xaml
+            </summary>
+            
+            <summary>
+            TravelPage
+            </summary>
+        </member>
+        <member name="M:Tour_agency.Frame.TravelPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Tour_agency.Helper.ClientHelper">
+            <summary>
+            Клас для роботи із базою даних клієнтів
+            </summary>
+        </member>
+        <member name="M:Tour_agency.Helper.ClientHelper.GetAllAsync">
+            <summary>
+            метод для отримання всіх клієнтів із бд
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.ClientHelper.AddAsync(Tour_agency.Models.Client)">
+            <summary>
+            Додавання нового клієнта в базу даних
+            </summary>
+            <param name="newClient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.ClientHelper.UpdateAsync(Tour_agency.Models.Client)">
+            <summary>
+            Оновлення даних клієнта
+            </summary>
+            <param name="updateClient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.ClientHelper.DeleteAsync(System.String)">
+            <summary>
+            Видалення клієнта за його id
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.ClientHelper.GetClient(System.String)">
+            <summary>
+            Метод для отримання даних клієнта за його id
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Tour_agency.Helper.IHelper`1">
+            <summary>
+            Інтерфейс для роботи із бд
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Tour_agency.Helper.IHelper`1.GetAllAsync">
+            <summary>
+            Метод для отримання всіх записів із бд
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.IHelper`1.AddAsync(`0)">
+            <summary>
+             Метод для додавання запису в бд
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.IHelper`1.UpdateAsync(`0)">
+            <summary>
+            Метод для оновлення даних 
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.IHelper`1.DeleteAsync(System.String)">
+            <summary>
+            Метод для видалення запису по id
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Tour_agency.Helper.TourHelper">
+            <summary>
+            Клас для роботи із бд Турів
+            </summary>
+        </member>
+        <member name="M:Tour_agency.Helper.TourHelper.GetAllAsync">
+            <summary>
+            Метод для отримання всіх турів із бд
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.TourHelper.GetTourIdsAndNames">
+            <summary>
+             Метод для отримання всіх id та імен туру
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.TourHelper.GetTourName(System.String)">
+            <summary>
+             Метод для отримання  назву туру по id
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.TourHelper.GetTour(System.String)">
+            <summary>
+            Метод для отриманння всіх даних про тур за його ід
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.TourHelper.AddAsync(Tour_agency.Models.Tour)">
+            <summary>
+            Метод для додавання даних про тур в бд
+            </summary>
+            <param name="newTour"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.TourHelper.UpdateAsync(Tour_agency.Models.Tour)">
+            <summary>
+            Метод оновлення даних туру
+            </summary>
+            <param name="updateTour"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.Helper.TourHelper.DeleteAsync(System.String)">
+            <summary>
+            Метод видалення туру із бд за його ід
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Tour_agency.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Tour_agency.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Tour_agency.Models.Client">
+            <summary>
+            Клас для роботи із моделю клієнтів
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Client.Error">
+            <summary>
+            Поле для отримання помилок
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Client.Item(System.String)">
+            <summary>
+            Методд який при зміні полів в текст боксах перевіряє чи валідні данні в них
+            </summary>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Tour_agency.Models.Client.Phone">
+            <summary>
+            Властивість для доступу до закритого поля _phone
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Client.IdTour">
+            <summary>
+            Властивість для доступу до закритого поля _idTour
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Client.DateOFDeparture">
+            <summary>
+            Властивість для доступу до закритого поля _dateOdFeparture
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Client.ReturnDate">
+            <summary>
+            Властивість для доступу до закритого поля  _returneDate
+            </summary>
+        </member>
+        <member name="E:Tour_agency.Models.Client.PropertyChanged">
+            <summary>
+            івент який спрацьовіє при зміні даниз в текст боксі
+            </summary>
+        </member>
+        <member name="M:Tour_agency.Models.Client.OnPropertyChanged(System.String)">
+            <summary>
+            Метод який викликає івент при зміні даних в текст боксі
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="T:Tour_agency.Models.Person">
+            <summary>
+            Асбтрактний клас в якому визначені базові поля
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Person.Id">
+            <summary>
+            Властивість для доступу до закритого поля _id
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Person.Name">
+            <summary>
+            Властивість для доступу до закритого поля _name
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Person.Surname">
+            <summary>
+            Властивість для доступу до закритого поля _surname
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Person.Patronymic">
+            <summary>
+            Властивість для доступу до закритого поля _patronymic
+            </summary>
+        </member>
+        <member name="T:Tour_agency.Models.Tour">
+            <summary>
+            Клас для роботи із Турами
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Tour.Error">
+            <summary>
+            Поле для отримання помилок
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Tour.Item(System.String)">
+            <summary>
+            Методд який при зміні полів в текст боксах перевіряє чи валідні данні в них
+            </summary>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Tour_agency.Models.Tour.Id">
+            <summary>
+            Властивість для доступу до закритого поля _id
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Tour.Name">
+            <summary>
+            Властивість для доступу до закритого поля _name
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Tour.Price">
+            <summary>
+            Властивість для доступу до закритого поля _price
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Tour.Country">
+            <summary>
+            Властивість для доступу до закритого поля _country
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Tour.Hotel">
+            <summary>
+            Властивість для доступу до закритого поля _hotel
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Tour.Description">
+            <summary>
+            Властивість для доступу до закритого поля _description
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Tour.Image">
+            <summary>
+            Властивість для доступу до закритого поля _image
+            </summary>
+        </member>
+        <member name="P:Tour_agency.Models.Tour.TourImage">
+            <summary>
+            Поле для отримання картинки
+            </summary>
+        </member>
+        <member name="E:Tour_agency.Models.Tour.PropertyChanged">
+            <summary>
+             івент який спрацьовіє при зміні даниз в текст боксі
+            </summary>
+        </member>
+        <member name="M:Tour_agency.Models.Tour.OnPropertyChanged(System.String)">
+            <summary>
+            Метод який викликає івент при зміні даних в текст боксі
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="M:Tour_agency.Models.Tour.ToString">
+            <summary>
+            Перевизначення методу Tostring() при якому використання цього методу буде повертати назву туру  
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:Tour_agency.BaseViewModel.PropertyChanged">
+            <summary>
+            The event that is fired when any child property changes its value
+            </summary>
+        </member>
+        <member name="M:Tour_agency.BaseViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            Call this to fire a <see cref="E:Tour_agency.BaseViewModel.PropertyChanged"/> event
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="T:Tour_agency.RelayCommand">
+            <summary>
+            A basic command that runs an Action
+            </summary>
+        </member>
+        <member name="F:Tour_agency.RelayCommand.mAction">
+            <summary>
+            The action to run
+            </summary>
+        </member>
+        <member name="E:Tour_agency.RelayCommand.CanExecuteChanged">
+            <summary>
+            The event thats fired when the <see cref="M:Tour_agency.RelayCommand.CanExecute(System.Object)"/> value has changed
+            </summary>
+        </member>
+        <member name="M:Tour_agency.RelayCommand.#ctor(System.Action)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Tour_agency.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            A relay command can always execute
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.RelayCommand.Execute(System.Object)">
+            <summary>
+            Executes the commands Action
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="F:Tour_agency.WindowViewModel.mWindow">
+            <summary>
+            The window this view model controls
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowViewModel.mOuterMarginSize">
+            <summary>
+            The margin around the window to allow for a drop shadow
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowViewModel.mWindowRadius">
+            <summary>
+            The radius of the edges of the window
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowViewModel.mDockPosition">
+            <summary>
+            The last known dock position
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.WindowMinimumWidth">
+            <summary>
+            The smallest width the window can go to
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.WindowMinimumHeight">
+            <summary>
+            The smallest height the window can go to
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.Borderless">
+            <summary>
+            True if the window should be borderless because it is docked or maximized
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.ResizeBorder">
+            <summary>
+            The size of the resize border around the window
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.ResizeBorderThickness">
+            <summary>
+            The size of the resize border around the window, taking into account the outer margin
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.InnerContentPadding">
+            <summary>
+            The padding of the inner content of the main window
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.OuterMarginSize">
+            <summary>
+            The margin around the window to allow for a drop shadow
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.OuterMarginSizeThickness">
+            <summary>
+            The margin around the window to allow for a drop shadow
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.WindowRadius">
+            <summary>
+            The radius of the edges of the window
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.WindowCornerRadius">
+            <summary>
+            The radius of the edges of the window
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.TitleHeight">
+            <summary>
+            The height of the title bar / caption of the window
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.TitleHeightGridLength">
+            <summary>
+            The height of the title bar / caption of the window
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.MinimizeCommand">
+            <summary>
+            The command to minimize the window
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.MaximizeCommand">
+            <summary>
+            The command to maximize the window
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.CloseCommand">
+            <summary>
+            The command to close the window
+            </summary>
+        </member>
+        <member name="P:Tour_agency.WindowViewModel.MenuCommand">
+            <summary>
+            The command to show the system menu of the window
+            </summary>
+        </member>
+        <member name="M:Tour_agency.WindowViewModel.#ctor(System.Windows.Window)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Tour_agency.WindowViewModel.GetMousePosition">
+            <summary>
+            Gets the current mouse position on the screen
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.WindowViewModel.WindowResized">
+            <summary>
+            If the window resizes to a special position (docked or maximized)
+            this will update all required property change events to set the borders and radius values
+            </summary>
+        </member>
+        <member name="T:Tour_agency.WindowDockPosition">
+            <summary>
+            The dock position of the window
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowDockPosition.Undocked">
+            <summary>
+            Not docked
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowDockPosition.Left">
+            <summary>
+            Docked to the left of the screen
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowDockPosition.Right">
+            <summary>
+            Docked to the right of the screen
+            </summary>
+        </member>
+        <member name="T:Tour_agency.WindowResizer">
+            <summary>
+            Fixes the issue with Windows of Style <see cref="F:System.Windows.WindowStyle.None"/> covering the taskbar
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowResizer.mWindow">
+            <summary>
+            The window to handle the resizing for
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowResizer.mScreenSize">
+            <summary>
+            The last calculated available screen size
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowResizer.mEdgeTolerance">
+            <summary>
+            How close to the edge the window has to be to be detected as at the edge of the screen
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowResizer.mTransformToDevice">
+            <summary>
+            The transform matrix used to convert WPF sizes to screen pixels
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowResizer.mLastScreen">
+            <summary>
+            The last screen the window was on
+            </summary>
+        </member>
+        <member name="F:Tour_agency.WindowResizer.mLastDock">
+            <summary>
+            The last known dock position
+            </summary>
+        </member>
+        <member name="E:Tour_agency.WindowResizer.WindowDockChanged">
+            <summary>
+            Called when the window dock position changes
+            </summary>
+        </member>
+        <member name="M:Tour_agency.WindowResizer.#ctor(System.Windows.Window)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="window">The window to monitor and correctly maximize</param>
+        </member>
+        <member name="M:Tour_agency.WindowResizer.GetTransform">
+            <summary>
+            Gets the transform object used to convert WPF sizes to screen pixels
+            </summary>
+        </member>
+        <member name="M:Tour_agency.WindowResizer.Window_SourceInitialized(System.Object,System.EventArgs)">
+            <summary>
+            Initialize and hook into the windows message pump
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tour_agency.WindowResizer.Window_SizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+            Monitors for size changes and detects if the window has been docked (Aero snap) to an edge
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tour_agency.WindowResizer.WindowProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)">
+            <summary>
+            Listens out for all windows messages for this window
+            </summary>
+            <param name="hwnd"></param>
+            <param name="msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <param name="handled"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tour_agency.WindowResizer.WmGetMinMaxInfo(System.IntPtr,System.IntPtr)">
+            <summary>
+            Get the min/max window size for this window
+            Correctly accounting for the taskbar size and position
+            </summary>
+            <param name="hwnd"></param>
+            <param name="lParam"></param>
+        </member>
+        <member name="F:Tour_agency.POINT.X">
+            <summary>
+            x coordinate of point.
+            </summary>
+        </member>
+        <member name="F:Tour_agency.POINT.Y">
+            <summary>
+            y coordinate of point.
+            </summary>
+        </member>
+        <member name="M:Tour_agency.POINT.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Construct a point of coordinates (x,y).
+            </summary>
+        </member>
+    </members>
+</doc>

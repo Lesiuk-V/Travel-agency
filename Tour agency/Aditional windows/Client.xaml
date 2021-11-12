@@ -196,7 +196,7 @@
                 BorderBrush="#FF818080">
             <ComboBox IsEditable="True"
                       x:Name="tour"
-                      SelectionChanged="tour_SelectionChanged"
+                      SelectionChanged="Tour_SelectionChanged"
                       Background="White"
                       Height="43"
                       Width="180"

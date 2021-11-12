@@ -95,7 +95,6 @@ namespace Tour_agency
             /// Default constructor
             /// </summary>
             /// <param name="window">The window to monitor and correctly maximize</param>
-            /// <param name="adjustSize">The callback for the host to adjust the maximum available size if needed</param>
             public WindowResizer(Window window)
             {
                 mWindow = window;
@@ -123,7 +122,7 @@ namespace Tour_agency
                 var source = PresentationSource.FromVisual(mWindow);
 
                 // Reset the transform to default
-                mTransformToDevice = default(Matrix);
+                mTransformToDevice = default;
 
                 // If we cannot get the source, ignore
                 if (source == null)
@@ -164,7 +163,7 @@ namespace Tour_agency
             private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
             {
                 // We cannot find positioning until the window transform has been established
-                if (mTransformToDevice == default(Matrix))
+                if (mTransformToDevice == default)
                     return;
 
                 // Get the WPF size
@@ -186,11 +185,11 @@ namespace Tour_agency
                 var edgedBottom = windowBottomRight.Y >= (mScreenSize.Bottom - mEdgeTolerance);
                 var edgedRight = windowBottomRight.X >= (mScreenSize.Right - mEdgeTolerance);
 
-                // Get docked position
-                var dock = WindowDockPosition.Undocked;
+            // Get docked position
+            WindowDockPosition dock;
 
-                // Left docking
-                if (edgedTop && edgedBottom && edgedLeft)
+            // Left docking
+            if (edgedTop && edgedBottom && edgedLeft)
                     dock = WindowDockPosition.Left;
                 else if (edgedTop && edgedBottom && edgedRight)
                     dock = WindowDockPosition.Right;
@@ -234,22 +233,21 @@ namespace Tour_agency
                 return (IntPtr)0;
             }
 
-            #endregion
+        #endregion
 
-            /// <summary>
-            /// Get the min/max window size for this window
-            /// Correctly accounting for the taskbar size and position
-            /// </summary>
-            /// <param name="hwnd"></param>
-            /// <param name="lParam"></param>
-            private void WmGetMinMaxInfo(System.IntPtr hwnd, System.IntPtr lParam)
+        /// <summary>
+        /// Get the min/max window size for this window
+        /// Correctly accounting for the taskbar size and position
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <param name="lParam"></param>
+        private void WmGetMinMaxInfo(System.IntPtr hwnd, System.IntPtr lParam)
             {
-                // Get the point position to determine what screen we are on
-                POINT lMousePosition;
-                GetCursorPos(out lMousePosition);
+            // Get the point position to determine what screen we are on
+            GetCursorPos(out POINT lMousePosition);
 
-                // Get the primary monitor at cursor position 0,0
-                var lPrimaryScreen = MonitorFromPoint(new POINT(0, 0), MonitorOptions.MONITOR_DEFAULTTOPRIMARY);
+            // Get the primary monitor at cursor position 0,0
+            var lPrimaryScreen = MonitorFromPoint(new POINT(0, 0), MonitorOptions.MONITOR_DEFAULTTOPRIMARY);
 
                 // Try and get the primary screen information
                 var lPrimaryScreenInfo = new MONITORINFO();
@@ -260,7 +258,7 @@ namespace Tour_agency
                 var lCurrentScreen = MonitorFromPoint(lMousePosition, MonitorOptions.MONITOR_DEFAULTTONEAREST);
 
                 // If this has changed from the last one, update the transform
-                if (lCurrentScreen != mLastScreen || mTransformToDevice == default(Matrix))
+                if (lCurrentScreen != mLastScreen || mTransformToDevice == default)
                     GetTransform();
 
                 // Store last know screen

@@ -31,11 +31,8 @@ namespace Tour_agency.Frame
    
     public partial class TravelPage : Page
     {
-        TourHelper tourHelper = new TourHelper();
-        static FirebaseClient tour = new FirebaseClient("https://traver-agency.firebaseio.com/");
-        static bool executed = true;
-        public Tour TourOne { get; set; }
-        public List<Tour> toursList { get; set; }
+        private TourHelper tourHelper = new TourHelper();
+        private List<Tour> ToursList { get; set; }
         public TravelPage()
         {
             InitializeComponent();
@@ -46,31 +43,29 @@ namespace Tour_agency.Frame
 
         }
 
-        async void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            toursList = await tourHelper.GetAllAsync();
-            foreach(var t in toursList)
+            ToursList = await tourHelper.GetAllAsync();
+            foreach(var t in ToursList)
             {
                 if (t.Image != null)
                 {
                     byte[] b = Convert.FromBase64String(t.Image);
 
-                    using (var ms = new MemoryStream(b))
-                    {
-                        var image = new BitmapImage();
-                        image.BeginInit();
-                        image.CacheOption = BitmapCacheOption.OnLoad; // з кожного запису турів переводимо масив байтів в картинку і ..........
-                        image.StreamSource = ms;
-                        image.EndInit();
+                    using var ms = new MemoryStream(b);
+                    var image = new BitmapImage();
+                    image.BeginInit();
+                    image.CacheOption = BitmapCacheOption.OnLoad; // з кожного запису турів переводимо масив байтів в картинку і ..........
+                    image.StreamSource = ms;
+                    image.EndInit();
 
-                        t.tourImage = image;// .............. Присвоюємо цю картинку локальному полю в класі Tour і здійснюємо байндинг до цього поля з елементу зображення
-                    }
+                    t.TourImage = image;// .............. Присвоюємо цю картинку локальному полю в класі Tour і здійснюємо байндинг до цього поля з елементу зображення
                 }
 
 
             }
 
-            ListViewTravel.ItemsSource = toursList;
+            ListViewTravel.ItemsSource = ToursList;
         }
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {

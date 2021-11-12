@@ -9,14 +9,23 @@ using System.Windows.Media.Imaging;
 
 namespace Tour_agency.Models
 {
-
+    /// <summary>
+    /// Клас для роботи із Турами
+    /// </summary>
     public class Tour: INotifyPropertyChanged, IDataErrorInfo
     {
         #region Data Validation
+        /// <summary>
+        /// Поле для отримання помилок
+        /// </summary>
         public string Error { get { return null; } }
 
-        public Dictionary<string, string> TourErrorCollection { get; private set; } = new Dictionary<string, string>();
-
+        private Dictionary<string, string> TourErrorCollection { get; set; } = new Dictionary<string, string>();
+        /// <summary>
+        /// Методд який при зміні полів в текст боксах перевіряє чи валідні данні в них
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
         public string this[string columnName]
         {
             get
@@ -77,47 +86,79 @@ namespace Tour_agency.Models
         private string _hotel;
         private string _description;
         private string _image;
+        /// <summary>
+        /// Властивість для доступу до закритого поля _id
+        /// </summary>
         public string Id 
         {
             get => _id;
             set => _id = value; 
         }
+        /// <summary>
+        /// Властивість для доступу до закритого поля _name
+        /// </summary>
         public string Name 
         {
             get => _name;
             set => _name = value;
         }
+        /// <summary>
+        /// Властивість для доступу до закритого поля _price
+        /// </summary>
         public string Price 
         {
             get => _price;
             set => _price = value;
         }
+        /// <summary>
+        /// Властивість для доступу до закритого поля _country
+        /// </summary>
         public string Country 
         {
             get => _country;
             set => _country = value;
         }
+        /// <summary>
+        /// Властивість для доступу до закритого поля _hotel
+        /// </summary>
         public string Hotel 
         {
             get => _hotel;
             set => _hotel = value;
         }
+        /// <summary>
+        /// Властивість для доступу до закритого поля _description
+        /// </summary>
         public string Description 
         {
             get => _description;
             set => _description = value;
         }
+        /// <summary>
+        /// Властивість для доступу до закритого поля _image
+        /// </summary>
         public string Image 
         {
             get => _image;
             set => _image = value;
         }
-
-        public BitmapImage tourImage { get; set; }
-
+        /// <summary>
+        /// Поле для отримання картинки
+        /// </summary>
+        public BitmapImage TourImage { get; set; }
+        /// <summary>
+        ///  івент який спрацьовіє при зміні даниз в текст боксі
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// Метод який викликає івент при зміні даних в текст боксі
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void OnPropertyChanged(string propertyName) =>  PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        /// <summary>
+        /// Перевизначення методу Tostring() при якому використання цього методу буде повертати назву туру  
+        /// </summary>
+        /// <returns></returns>
         public override string ToString() => Name;
 
     }

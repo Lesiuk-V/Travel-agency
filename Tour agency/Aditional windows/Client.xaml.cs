@@ -28,9 +28,9 @@ namespace Tour_agency.Aditional_windows
     public partial class Costomers : Window
     {
        
-        string tourId;
-        bool edited = true;
-        ClientHelper clientHelper = new ClientHelper();
+        private string tourId;
+        private bool edited = true;
+        private ClientHelper clientHelper = new ClientHelper();
         Client Client = new Client();
         TourHelper tourHelper = new TourHelper();
         List<Tour> ToursList; 
@@ -40,7 +40,7 @@ namespace Tour_agency.Aditional_windows
             if (toursList != null)
                 ToursList = toursList;
 
-            getTours();
+            GetTours();
             Client = client;
             if (client == null)
             {
@@ -53,7 +53,7 @@ namespace Tour_agency.Aditional_windows
            
         }
 
-        void getTours()
+        void GetTours()
         {
             if(ToursList != null)
             tour.ItemsSource = ToursList;
@@ -69,14 +69,16 @@ namespace Tour_agency.Aditional_windows
             
             if (name.Text != "" && surname.Text != "" && patronymic.Text != "" && phone.Text != "" && tourId != "" && dateOfDeparture.Text != null && returnDate.Text != null )
             {
-                Client client = new Client();
-                client.Name = name.Text;
-                client.Surname = surname.Text;
-                client.Patronymic = patronymic.Text;
-                client.Phone = phone.Text;
-                client.IdTour = tourId;
-                client.DateOFDeparture = dateOfDeparture.Text;
-                client.ReturnDate = returnDate.Text;
+                Client client = new Client
+                {
+                    Name = name.Text,
+                    Surname = surname.Text,
+                    Patronymic = patronymic.Text,
+                    Phone = phone.Text,
+                    IdTour = tourId,
+                    DateOFDeparture = dateOfDeparture.Text,
+                    ReturnDate = returnDate.Text
+                };
                 try
                 {
                     if (edited == false)
@@ -118,7 +120,7 @@ namespace Tour_agency.Aditional_windows
            
             if (edited == true)
             {
-                Tour specificTour = await tourHelper.GetTourIdAndName(Client.IdTour);
+                Tour specificTour = await tourHelper.GetTourName(Client.IdTour);
                 if (specificTour != null)
                 {
                     string tourName = specificTour.Name;
@@ -128,7 +130,7 @@ namespace Tour_agency.Aditional_windows
             }
         }
 
-        private void tour_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Tour_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (tour.SelectedItem != null)
             {

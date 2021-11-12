@@ -9,10 +9,16 @@ using Tour_agency.Models;
 
 namespace Tour_agency.Helper
 {
+    /// <summary>
+    /// Клас для роботи із базою даних клієнтів
+    /// </summary>
     public class ClientHelper : IHelper<Client>
     {
-        FirebaseClient client = new FirebaseClient("https://traver-agency.firebaseio.com/");
-
+       private FirebaseClient client = new FirebaseClient("https://traver-agency.firebaseio.com/");
+        /// <summary>
+        /// метод для отримання всіх клієнтів із бд
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Client>> GetAllAsync()
         {
             return (await client
@@ -29,7 +35,11 @@ namespace Tour_agency.Helper
                     DateOFDeparture = item.Object.DateOFDeparture
                 }).ToList();
         }
-
+        /// <summary>
+        /// Додавання нового клієнта в базу даних
+        /// </summary>
+        /// <param name="newClient"></param>
+        /// <returns></returns>
         public async Task AddAsync(Client newClient)
         {
             await client
@@ -46,6 +56,11 @@ namespace Tour_agency.Helper
                     ReturnDate = newClient.ReturnDate
                 });
         }
+        /// <summary>
+        /// Оновлення даних клієнта
+        /// </summary>
+        /// <param name="updateClient"></param>
+        /// <returns></returns>
         public async Task UpdateAsync(Client updateClient)
         {
             var toUpdateClient = (await client
@@ -59,7 +74,11 @@ namespace Tour_agency.Helper
                  Patronymic = updateClient.Patronymic, Phone = updateClient.Phone, IdTour = updateClient.IdTour, DateOFDeparture = updateClient.DateOFDeparture,
                  ReturnDate = updateClient.ReturnDate});
         }
-
+        /// <summary>
+        /// Видалення клієнта за його id
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         public async Task DeleteAsync(string ID)
         {
             var toDeleteProduct = (await client
@@ -67,7 +86,11 @@ namespace Tour_agency.Helper
                 .OnceAsync<Client>()).Where(a => a.Object.Id == ID).FirstOrDefault();
             await client.Child("Client").Child(toDeleteProduct.Key).DeleteAsync();
         }
-
+        /// <summary>
+        /// Метод для отримання даних клієнта за його id
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         public async Task<Client> GetClient(string ID)
         {
             var allClients = await GetAllAsync();
@@ -79,7 +102,7 @@ namespace Tour_agency.Helper
         }
 
         #region Random ID FOR Clients
-        string GetRandomId()
+        private string GetRandomId()
         {
             Random rnd = new Random();
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

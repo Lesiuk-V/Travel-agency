@@ -7,6 +7,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\navch\git\TravelAgency\Tour agency\Tour agency.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="Icon\favicon.ico" />
     <None Remove="Image\Maldi.jpg" />

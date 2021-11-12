@@ -69,12 +69,14 @@ namespace Tour_agency.Aditional_windows
             bool close = true;
             if (name.Text != "" && price.Text != "" && country.Text !="" && hotel.Text != "" && description.Text != "")
             {
-                Tour tour = new Tour();
-                tour.Name = name.Text;
-                tour.Price = price.Text;
-                tour.Country = country.Text;
-                tour.Hotel = hotel.Text;
-                tour.Description = description.Text;
+                Tour tour = new Tour
+                {
+                    Name = name.Text,
+                    Price = price.Text,
+                    Country = country.Text,
+                    Hotel = hotel.Text,
+                    Description = description.Text
+                };
 
 
                 if (edited == false)
@@ -141,9 +143,11 @@ namespace Tour_agency.Aditional_windows
 
         void AddImageFromDialogWindow()
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Select Image";
-            ofd.Filter = "JPG Files(*.jpg) | *.jpg";
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Title = "Select Image",
+                Filter = "JPG Files(*.jpg) | *.jpg"
+            };
 
 
 
