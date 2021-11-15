@@ -39,5 +39,12 @@
       <FileName>Models\Person.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Interface Name="Tour_agency.Helper.IHelper&lt;T&gt;">
+    <Position X="3.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAEAAAAAAAgAAAAAAAAAAIA=</HashCode>
+      <FileName>Helper\IHelper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
